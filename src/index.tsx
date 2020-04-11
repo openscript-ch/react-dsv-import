@@ -1,5 +1,3 @@
-import React from 'react';
+import { DSVImport } from './DSVImport';
 
-export const DSVImport: React.FC = () => {
-	return <div>Hello</div>;
-} 
+export { DSVImport };
