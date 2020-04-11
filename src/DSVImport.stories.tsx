@@ -5,4 +5,4 @@ export default { title: 'DSVImport' };
 
 export const Primary = () => {
   return <DSVImport />;
-}
+};
