@@ -1,3 +1,3 @@
-import { DSVImport } from './DSVImport';
+import { DSVImport } from './components/DSVImport';
 
 export { DSVImport };
