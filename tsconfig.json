@@ -8,7 +8,9 @@
     "sourceMap": true,
     "strict": true,
     "esModuleInterop": true,
-    "rootDir": "src"
+    "rootDir": "src",
+    "moduleResolution": "node",
   },
-  "include": ["src"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

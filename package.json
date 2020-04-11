@@ -6,10 +6,19 @@
   "types": "dist/index.d.ts",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.9.0",
     "@rollup/plugin-typescript": "^4.0.0",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-info": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/react": "^5.3.18",
     "@types/node": "^13.11.1",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^9.1.2",
     "rollup": "^2.6.0",
     "ts-node": "^8.8.2",
     "tslib": "^1.11.1",
@@ -19,7 +28,9 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "test": "ts-node test/test.ts",
-    "pretest": "npm run build"
+    "pretest": "yarn build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "files": [
     "dist"
