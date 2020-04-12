@@ -2,7 +2,7 @@ import React from 'react';
 import { DSVImport, ColumnsType } from './DSVImport';
 import { actions } from '@storybook/addon-actions';
 
-export default { title: 'DSVImport' };
+export default { title: 'Components/DSVImport' };
 
 const defaultActions = actions('onChange');
 
