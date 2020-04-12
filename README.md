@@ -8,6 +8,9 @@ Flexible, typed and easy to use React component to provide CSV, TSV and other de
    - [TypeScript ESLint](https://typescript-eslint.io/)
  - [React](https://reactjs.org/)
  - [Storybook](https://storybook.js.org/)
+   - [Addon: Docs](https://github.com/storybookjs/storybook/tree/master/addons/docs)
+   - [Addon: Source](https://github.com/storybookjs/storybook/tree/master/addons/storysource)
+   - [Addon: Actions](https://github.com/storybookjs/storybook/tree/master/addons/actions)
 
 ## Resources
  - [Article: Using ESLint and Prettier in a TypeScript Project](https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project)
