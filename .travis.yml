@@ -1,3 +1,23 @@
 language: node_js
 node_js:
   - '13'
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+install:
+  - yarn install
+
+script:
+  - yarn build:storybook
+
+deploy:
+  provider: pages
+  local_dir: storybook-static
+  skip_cleanup: false
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  on:
+    branch: master

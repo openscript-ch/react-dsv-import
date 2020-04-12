@@ -35,12 +35,14 @@
     "typescript": "^3.8.3"
   },
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "build": "yarn build:rollup",
+    "dev": "yarn dev:storybook",
     "test": "ts-node test/test.ts",
     "pretest": "yarn build",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "dev:rollup": "rollup -c --w",
+    "dev:storybook": "start-storybook -p 6006",
+    "build:rollup": "rollup -c",
+    "build:storybook": "build-storybook"
   },
   "files": [
     "dist"
