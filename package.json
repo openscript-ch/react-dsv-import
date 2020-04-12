@@ -42,7 +42,7 @@
     "dev:rollup": "rollup -c --w",
     "dev:storybook": "start-storybook -p 6006",
     "build:rollup": "rollup -c",
-    "build:storybook": "build-storybook"
+    "build:storybook": "build-storybook --quiet"
   },
   "files": [
     "dist"

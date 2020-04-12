@@ -14,10 +14,16 @@ script:
   - yarn build:storybook
 
 deploy:
-  provider: pages
-  local_dir: storybook-static
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: true
-  on:
-    branch: master
+  - provider: pages
+    local_dir: storybook-static
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    keep_history: true
+    on:
+      branch: master
+  - provider: npm
+    email: $NPM_EMAIL
+    api_key: $NPM_TOKEN
+    edge: true
+    on:
+      tags: true
