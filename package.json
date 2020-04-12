@@ -3,7 +3,7 @@
   "description": "Flexible, typed and easy to use React Component ⚛ to provide CSV, TSV and other delimiter-separated values formats (DSV) import functionality.",
   "keywords": ["react-component", "typescript", "react"],
   "homepage": "https://openscript.github.io/react-dsv-import/",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "module": "dist/es/index.js",
   "types": "dist/index.d.ts",

@@ -23,7 +23,9 @@ deploy:
     on:
       branch: master
   - provider: npm
+    skip_cleanup: true
+    edge: true
     email: $NPM_EMAIL
-    api_key: $NPM_TOKEN
+    api_token: $NPM_TOKEN
     on:
       tags: true
