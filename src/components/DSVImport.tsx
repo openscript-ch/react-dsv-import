@@ -8,7 +8,7 @@ enum Separator {
 export type ColumnsType<T> = { key: keyof T; label: string }[];
 
 interface Props<T> {
-  onChange: (value: T[]) => void;
+  onChange?: (value: T[]) => void;
   columns: ColumnsType<T>;
 }
 
@@ -40,7 +40,9 @@ export const DSVImport = <T extends { [key: string]: string }>(props: PropsWithC
       return parsedLine;
     });
     setData(parsedData);
-    props.onChange(parsedData);
+    if (props.onChange) {
+      props.onChange(parsedData);
+    }
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
