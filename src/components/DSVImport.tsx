@@ -1,11 +1,10 @@
 import React, { PropsWithChildren } from 'react';
+import { ColumnsType } from '../models/column';
 
 enum Separator {
   COMMA = ',',
   TAB = '\t'
 }
-
-export type ColumnsType<T> = { key: keyof T; label: string }[];
 
 interface Props<T> {
   onChange?: (value: T[]) => void;

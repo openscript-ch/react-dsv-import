@@ -1,6 +1,7 @@
 import React from 'react';
-import { DSVImport, ColumnsType } from './DSVImport';
+import { DSVImport } from './DSVImport';
 import { actions } from '@storybook/addon-actions';
+import { ColumnsType } from '../models/column';
 
 export default { title: 'Components/DSVImport' };
 
