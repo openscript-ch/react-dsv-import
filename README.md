@@ -12,22 +12,25 @@ Add the package with the package manager of choice to your project:
 
 ### TypeScript
 ```
-import { ColumnsType, DSVImport } from 'react-dsv-import';
+import { DSVImport, ColumnsType, DSVTablePreview, DSVTextareaInput } from 'react-dsv-import';
 
-type ImportType = { forename: string; surname: string; email: string };
+type BasicType = { forename: string; surname: string; email: string };
 
-const columns: ColumnsType<ImportType> = [
+const columns: ColumnsType<BasicType> = [
   { key: 'forename', label: 'Forename' },
   { key: 'surname', label: 'Surname' },
   { key: 'email', label: 'Email' }
 ];
 
-<DSVImport<ImportType> columns={columns} />
+<DSVImport<BasicType> columns={columns}>
+  <DSVTextareaInput />
+  <DSVTablePreview />
+</DSVImport>
 ```
 
 ### JavaScript
 ```
-import { DSVImport } from 'react-dsv-import';
+import { DSVImport, DSVTablePreview, DSVTextareaInput } from 'react-dsv-import';
 
 const columns = [
   { key: 'forename', label: 'Forename' },
@@ -35,7 +38,10 @@ const columns = [
   { key: 'email', label: 'Email' }
 ];
 
-<DSVImport columns={columns} />
+<DSVImport columns={columns}>
+  <DSVTextareaInput />
+  <DSVTablePreview />
+</DSVImport>
 ```
 
 ## Project
@@ -46,10 +52,10 @@ The most important features of this component are:
 
  - ✅ Type definitions and type safety
  - ✅ DSV format detection
+ - ✅ Fully compositable
  - ❌ Input validation
  - ❌ [Material UI](https://material-ui.com/) integration
  - ❌ [ant.design](https://ant.design/) integration
- - ❌ Fully compositable
 
 ✅ means the feature is implemented and released. ❌ indicates that a feature is planned.
 
