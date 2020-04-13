@@ -12,7 +12,7 @@ Add the package with the package manager of choice to your project:
 
 ### TypeScript
 ```
-import { DSVImport, ColumnsType, DSVTablePreview, DSVTextareaInput } from 'react-dsv-import';
+import { DSVImport, ColumnsType, TablePreview, TextareaInput } from 'react-dsv-import';
 
 type BasicType = { forename: string; surname: string; email: string };
 
@@ -23,14 +23,14 @@ const columns: ColumnsType<BasicType> = [
 ];
 
 <DSVImport<BasicType> columns={columns}>
-  <DSVTextareaInput />
-  <DSVTablePreview />
+  <TextareaInput />
+  <TablePreview />
 </DSVImport>
 ```
 
 ### JavaScript
 ```
-import { DSVImport, DSVTablePreview, DSVTextareaInput } from 'react-dsv-import';
+import { DSVImport, TablePreview, TextareaInput } from 'react-dsv-import';
 
 const columns = [
   { key: 'forename', label: 'Forename' },
@@ -39,8 +39,8 @@ const columns = [
 ];
 
 <DSVImport columns={columns}>
-  <DSVTextareaInput />
-  <DSVTablePreview />
+  <TextareaInput />
+  <TablePreview />
 </DSVImport>
 ```
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDSVImport } from '../../features/context';
 
-export const DSVTablePreview: React.FC = () => {
+export const TablePreview: React.FC = () => {
   const [context] = useDSVImport();
 
   return (

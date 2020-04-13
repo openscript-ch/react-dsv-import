@@ -1,5 +1,5 @@
 import React from 'react';
-import { DSVImport, ColumnsType, DSVTablePreview, DSVTextareaInput } from './';
+import { DSVImport, ColumnsType, TablePreview, TextareaInput } from './';
 
 export default { title: 'Usage/DSVImport' };
 
@@ -14,8 +14,8 @@ const columns: ColumnsType<BasicType> = [
 export const BasicUsage = () => {
   return (
     <DSVImport<BasicType> columns={columns}>
-      <DSVTextareaInput />
-      <DSVTablePreview />
+      <TextareaInput />
+      <TablePreview />
     </DSVImport>
   );
 };

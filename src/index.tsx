@@ -2,8 +2,8 @@
 export * from './DSVImport';
 
 // components
-export * from './components/inputs/DSVTextareaInput';
-export * from './components/previews/DSVTablePreview';
+export * from './components/inputs/TextareaInput';
+export * from './components/previews/TablePreview';
 
 // models
 export * from './models/column';
