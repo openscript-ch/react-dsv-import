@@ -1,5 +1,63 @@
 # react-dsv-import
-Flexible, typed and easy to use React component to provide CSV, TSV and other delimiter-separated values formats (DSV) import functionality.
+Flexible, typed and easy to use React Component ⚛ to provide CSV, TSV and other delimiter-separated values formats (DSV) import functionality.
+
+![Travis (.com)](https://img.shields.io/travis/com/openscript/react-dsv-import) ![npm](https://img.shields.io/npm/v/react-dsv-import) ![npm peer dependency version](https://img.shields.io/npm/dependency-version/react-dsv-import/peer/react) ![GitHub](https://img.shields.io/github/license/openscript/react-dsv-import)
+
+## Getting started
+Add the package with the package manager of choice to your project:
+
+ - **yarn**: `yarn add react-dsv-import`
+ - **npm**: `npm install react-dsv-import`
+ - **npx**: `npx -p react-dsv-import`
+
+### TypeScript
+```
+import { ColumnsType, DSVImport } from 'react-dsv-import';
+
+type ImportType = { forename: string; surname: string; email: string };
+
+const columns: ColumnsType<ImportType> = [
+  { key: 'forename', label: 'Forename' },
+  { key: 'surname', label: 'Surname' },
+  { key: 'email', label: 'Email' }
+];
+
+<DSVImport<ImportType> columns={columns} />
+```
+
+### JavaScript
+```
+import { DSVImport } from 'react-dsv-import';
+
+const columns = [
+  { key: 'forename', label: 'Forename' },
+  { key: 'surname', label: 'Surname' },
+  { key: 'email', label: 'Email' }
+];
+
+<DSVImport columns={columns} />
+```
+
+## Project
+This section describes the status of the project.
+
+### Features
+The most important features of this component are:
+
+ - ✅ Type definitions and type safety
+ - ✅ DSV format detection
+ - ❌ Input validation
+ - ❌ [Material UI](https://material-ui.com/) integration
+ - ❌ [ant.design](https://ant.design/) integration
+ - ❌ Fully compositable
+
+✅ means the feature is implemented and released. ❌ indicates that a feature is planned.
+
+### Links
+ - [Code repository](https://github.com/openscript/react-dsv-import)
+ - [Build status](https://travis-ci.com/github/openscript/react-dsv-import)
+ - [Documenation and examples](https://openscript.github.io/react-dsv-import)
+ - [Package publication](https://www.npmjs.com/package/react-dsv-import)
 
 ## Tools
  - [yarn](https://yarnpkg.com/)
@@ -11,6 +69,7 @@ Flexible, typed and easy to use React component to provide CSV, TSV and other de
    - [Addon: Docs](https://github.com/storybookjs/storybook/tree/master/addons/docs)
    - [Addon: Source](https://github.com/storybookjs/storybook/tree/master/addons/storysource)
    - [Addon: Actions](https://github.com/storybookjs/storybook/tree/master/addons/actions)
+  - [Travis CI](https://travis-ci.com)
 
 ## Resources
  - [Article: Using ESLint and Prettier in a TypeScript Project](https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project)
