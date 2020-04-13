@@ -1,7 +1,7 @@
 import React from 'react';
 import { DSVImport, ColumnsType, TablePreview, TextareaInput } from './';
 
-export default { title: 'Usage/DSVImport' };
+export default { title: 'Usage' };
 
 type BasicType = { forename: string; surname: string; email: string };
 
@@ -19,3 +19,4 @@ export const BasicUsage = () => {
     </DSVImport>
   );
 };
+BasicUsage.story = { name: 'Basic usage' };
