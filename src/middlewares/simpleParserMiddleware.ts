@@ -20,7 +20,7 @@ const parseData = <T>(value: string, columns: ColumnsType<T>, delimiter: Delimit
   const lines = value.split('\n');
   return lines.map((line) => {
     const lineValues = line.split(delimiter);
-    const parsedLine: T = {} as T;
+    const parsedLine = {} as T;
     columns.forEach((column, columnIndex) => {
       parsedLine[column.key] = (lineValues[columnIndex] as unknown) as T[keyof T];
     });
