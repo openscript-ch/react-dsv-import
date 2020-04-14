@@ -1,5 +1,5 @@
 import { State } from '../models/state';
-import { Actions } from '../features/context';
+import { Actions, reducer } from '../features/context';
 import { Delimiter } from '../models/delimiter';
 import { ColumnsType } from '../models/column';
 
@@ -16,29 +16,31 @@ const detectDelimiterFromValue = (value: string, defaultDelimiter = Delimiter.CO
   return currentDelimiter;
 };
 
-const parseData = <T extends { [key: string]: string }>(
-  value: string,
-  columns: ColumnsType<T>,
-  delimiter: Delimiter
-) => {
+const parseData = <T>(value: string, columns: ColumnsType<T>, delimiter: Delimiter) => {
   const lines = value.split('\n');
   return lines.map((line) => {
     const lineValues = line.split(delimiter);
     const parsedLine: T = {} as T;
     columns.forEach((column, columnIndex) => {
-      parsedLine[column.key] = lineValues[columnIndex] as T[keyof T];
+      parsedLine[column.key] = (lineValues[columnIndex] as unknown) as T[keyof T];
     });
     return parsedLine;
   });
 };
 
-export const SimpleParserMiddleware = <T extends { [key: string]: string }>(state: State<T>, action: Actions) => {
-  let newState = state;
+export const createSimpleParserMiddleware = <T>(onChange?: (value: T[]) => void) => {
+  return (state: State<T>, action: Actions) => {
+    let newState = reducer<T>(state, action);
 
-  if (action.type === 'setRaw') {
-    const delimiter = detectDelimiterFromValue(action.raw);
-    newState = { ...newState, parsed: parseData<T>(action.raw, state.columns, delimiter) };
-  }
+    if (action.type === 'setRaw') {
+      const delimiter = detectDelimiterFromValue(action.raw);
+      const parsed = parseData<T>(action.raw, state.columns, delimiter);
+      if (onChange) {
+        onChange(parsed);
+      }
+      newState = { ...newState, parsed };
+    }
 
-  return newState;
+    return newState;
+  };
 };

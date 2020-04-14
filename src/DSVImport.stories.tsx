@@ -1,5 +1,6 @@
 import React from 'react';
 import { DSVImport, ColumnsType, TablePreview, TextareaInput } from './';
+import { action } from '@storybook/addon-actions';
 
 export default { title: 'Usage' };
 
@@ -11,9 +12,11 @@ const columns: ColumnsType<BasicType> = [
   { key: 'email', label: 'Email' }
 ];
 
+const onChangeAction = action('Parsed value has changed');
+
 export const BasicUsage = () => {
   return (
-    <DSVImport<BasicType> columns={columns}>
+    <DSVImport<BasicType> columns={columns} onChange={onChangeAction}>
       <TextareaInput />
       <TablePreview />
     </DSVImport>
