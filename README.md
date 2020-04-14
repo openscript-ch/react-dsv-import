@@ -1,5 +1,5 @@
 # react-dsv-import
-Flexible, typed and easy to use React Component ⚛ to provide CSV, TSV and other delimiter-separated values formats (DSV) import functionality.
+Flexible, typed and easy to use React Component ⚛ to provide CSV, TSV and other delimiter-separated values formats ([DSV](https://en.wikipedia.org/wiki/Delimiter-separated_values)) import functionality.
 
 ![Travis (.com)](https://img.shields.io/travis/com/openscript/react-dsv-import) ![npm](https://img.shields.io/npm/v/react-dsv-import) ![npm peer dependency version](https://img.shields.io/npm/dependency-version/react-dsv-import/peer/react) ![GitHub](https://img.shields.io/github/license/openscript/react-dsv-import)
 
@@ -12,22 +12,25 @@ Add the package with the package manager of choice to your project:
 
 ### TypeScript
 ```
-import { ColumnsType, DSVImport } from 'react-dsv-import';
+import { DSVImport, ColumnsType, TablePreview, TextareaInput } from 'react-dsv-import';
 
-type ImportType = { forename: string; surname: string; email: string };
+type BasicType = { forename: string; surname: string; email: string };
 
-const columns: ColumnsType<ImportType> = [
+const columns: ColumnsType<BasicType> = [
   { key: 'forename', label: 'Forename' },
   { key: 'surname', label: 'Surname' },
   { key: 'email', label: 'Email' }
 ];
 
-<DSVImport<ImportType> columns={columns} />
+<DSVImport<BasicType> columns={columns}>
+  <TextareaInput />
+  <TablePreview />
+</DSVImport>
 ```
 
 ### JavaScript
 ```
-import { DSVImport } from 'react-dsv-import';
+import { DSVImport, TablePreview, TextareaInput } from 'react-dsv-import';
 
 const columns = [
   { key: 'forename', label: 'Forename' },
@@ -35,7 +38,10 @@ const columns = [
   { key: 'email', label: 'Email' }
 ];
 
-<DSVImport columns={columns} />
+<DSVImport columns={columns}>
+  <TextareaInput />
+  <TablePreview />
+</DSVImport>
 ```
 
 ## Project
@@ -46,10 +52,10 @@ The most important features of this component are:
 
  - ✅ Type definitions and type safety
  - ✅ DSV format detection
+ - ✅ Fully compositable
  - ❌ Input validation
  - ❌ [Material UI](https://material-ui.com/) integration
  - ❌ [ant.design](https://ant.design/) integration
- - ❌ Fully compositable
 
 ✅ means the feature is implemented and released. ❌ indicates that a feature is planned.
 
