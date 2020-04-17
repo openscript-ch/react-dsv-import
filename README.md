@@ -12,7 +12,7 @@ Add the package with the package manager of choice to your project:
 
 ### TypeScript
 ```
-import { DSVImport, ColumnsType, TablePreview, TextareaInput } from 'react-dsv-import';
+import { DSVImport, ColumnsType } from 'react-dsv-import';
 
 type BasicType = { forename: string; surname: string; email: string };
 
@@ -23,14 +23,14 @@ const columns: ColumnsType<BasicType> = [
 ];
 
 <DSVImport<BasicType> columns={columns}>
-  <TextareaInput />
-  <TablePreview />
+  <DSVImport.TextareaInput />
+  <DSVImport.TablePreview />
 </DSVImport>
 ```
 
 ### JavaScript
 ```
-import { DSVImport, TablePreview, TextareaInput } from 'react-dsv-import';
+import { DSVImport } from 'react-dsv-import';
 
 const columns = [
   { key: 'forename', label: 'Forename' },
@@ -39,8 +39,8 @@ const columns = [
 ];
 
 <DSVImport columns={columns}>
-  <TextareaInput />
-  <TablePreview />
+  <DSVImport.TextareaInput />
+  <DSVImport.TablePreview />
 </DSVImport>
 ```
 
@@ -53,6 +53,7 @@ The most important features of this component are:
  - ✅ Type definitions and type safety
  - ✅ DSV format detection
  - ✅ Fully compositable
+ - ❌ Automatic testing with >90% coverage
  - ❌ Input validation
  - ❌ [Material UI](https://material-ui.com/) integration
  - ❌ [ant.design](https://ant.design/) integration
