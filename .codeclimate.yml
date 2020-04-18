@@ -19,3 +19,4 @@ exclude_patterns:
   - "**/*.d.ts"
   - "**/*.stories.*"
   - "**/*.test.*"
+  - "*.js"
