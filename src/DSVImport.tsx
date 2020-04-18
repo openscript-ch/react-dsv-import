@@ -4,7 +4,7 @@ import { getDSVImportContext } from './features/context';
 import { createSimpleParserMiddleware } from './middlewares/simpleParserMiddleware';
 import { State } from './models/state';
 
-interface Props<T> {
+export interface Props<T> {
   onChange?: (value: T[]) => void;
   columns: ColumnsType<T>;
 }

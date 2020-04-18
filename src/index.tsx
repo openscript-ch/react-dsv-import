@@ -1,12 +1,13 @@
-// composite
-export * from './DSVImport';
+import { TextareaInput } from './components/inputs/TextareaInput';
+import { TablePreview } from './components/previews/TablePreview';
+import { DSVImport as Import, Props } from './DSVImport';
+import { PropsWithChildren } from 'react';
 
-// components
-export * from './components/inputs/TextareaInput';
-export * from './components/previews/TablePreview';
+export function DSVImport<T extends { [key: string]: string }>(props: PropsWithChildren<Props<T>>) {
+  return Import<T>(props);
+}
 
-// features
-export { useDSVImport } from './features/context';
+DSVImport.TextareaInput = TextareaInput;
+DSVImport.TablePreview = TablePreview;
 
-// models
-export * from './models/column';
+export { ColumnsType } from './models/column';
