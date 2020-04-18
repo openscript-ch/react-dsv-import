@@ -1,7 +1,12 @@
 # react-dsv-import
 Flexible, typed and easy to use React Component ⚛ to provide CSV, TSV and other delimiter-separated values formats ([DSV](https://en.wikipedia.org/wiki/Delimiter-separated_values)) import functionality.
 
-![Travis (.com)](https://img.shields.io/travis/com/openscript/react-dsv-import) ![npm](https://img.shields.io/npm/v/react-dsv-import) ![npm peer dependency version](https://img.shields.io/npm/dependency-version/react-dsv-import/peer/react) ![GitHub](https://img.shields.io/github/license/openscript/react-dsv-import)
+[![Travis (.com)](https://img.shields.io/travis/com/openscript/react-dsv-import)](https://travis-ci.com/github/openscript/react-dsv-import)
+[![npm](https://img.shields.io/npm/v/react-dsv-import)](https://www.npmjs.com/package/react-dsv-import)
+[![npm peer dependency version](https://img.shields.io/npm/dependency-version/react-dsv-import/peer/react)](https://www.npmjs.com/package/react)
+[![GitHub](https://img.shields.io/github/license/openscript/react-dsv-import)](https://github.com/openscript/react-dsv-import)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f05b123887e046758a96/maintainability)](https://codeclimate.com/github/openscript/react-dsv-import/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f05b123887e046758a96/test_coverage)](https://codeclimate.com/github/openscript/react-dsv-import/test_coverage)
 
 ## Getting started
 Add the package with the package manager of choice to your project:
@@ -65,6 +70,7 @@ The most important features of this component are:
  - [Build status](https://travis-ci.com/github/openscript/react-dsv-import)
  - [Documenation and examples](https://openscript.github.io/react-dsv-import)
  - [Package publication](https://www.npmjs.com/package/react-dsv-import)
+ - [Code quality evaluation](https://codeclimate.com/github/openscript/react-dsv-import)
 
 ## Tools
  - [yarn](https://yarnpkg.com/)
