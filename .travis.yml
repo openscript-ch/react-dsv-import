@@ -10,9 +10,18 @@ cache:
 install:
   - yarn install --frozen-lockfile
 
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+
 script:
+  - yarn test
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./cc-test-reporter format-coverage -t lcov coverage/lcov.info -o coverage/codeclimate.json; fi'
   - yarn build:rollup
   - yarn build:storybook
+
+after_script:
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./cc-test-reporter upload-coverage; fi'
 
 deploy:
   - provider: pages

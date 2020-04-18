@@ -49,9 +49,9 @@
   "scripts": {
     "build": "yarn build:rollup",
     "dev": "yarn dev:storybook",
-    "test": "jest",
+    "test": "jest --coverage",
     "pretest": "yarn build",
-    "dev:test": "jest --watch",
+    "dev:test": "jest --watchAll --coverage",
     "dev:rollup": "rollup -c --w",
     "dev:storybook": "start-storybook -p 6006",
     "build:rollup": "rollup -c",

@@ -7,5 +7,6 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest'
   },
   testMatch: ['**/*.test.(ts|tsx)'],
+  collectCoverageFrom: ['**/!(*.stories).(ts|tsx)'],
   moduleNameMapper: {}
 };
