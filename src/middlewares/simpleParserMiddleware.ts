@@ -29,7 +29,7 @@ const parseData = <T>(value: string, columns: ColumnsType<T>, delimiter: Delimit
 };
 
 export const createSimpleParserMiddleware = <T>(onChange?: (value: T[]) => void) => {
-  return (state: State<T>, action: Actions) => {
+  return (state: State<T>, action: Actions<T>) => {
     let newState = reducer<T>(state, action);
 
     if (action.type === 'setRaw') {
@@ -38,7 +38,7 @@ export const createSimpleParserMiddleware = <T>(onChange?: (value: T[]) => void)
       if (onChange) {
         onChange(parsed);
       }
-      newState = { ...newState, parsed };
+      newState = reducer<T>(state, { type: 'setParsed', parsed });
     }
 
     return newState;
