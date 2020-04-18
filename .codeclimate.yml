@@ -1,0 +1,21 @@
+plugins: 
+  eslint:
+    enabled: true
+    channel: "eslint-6"
+  editorconfig:
+    enabled: false
+  fixme:
+    enabled: true
+  markdownlint:
+    enabled: false
+
+exclude_patterns:
+  - "dist/"
+  - "**/node_modules/"
+  - "**/spec/"
+  - "**/test/"
+  - "**/tests/"
+  - "**/vendor/"
+  - "**/*.d.ts"
+  - "**/*.stories.*"
+  - "**/*.test.*"
