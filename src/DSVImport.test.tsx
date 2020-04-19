@@ -31,7 +31,7 @@ describe('DSVImport', () => {
       fireEvent.change(textarea, { target: { value: 'Max' } });
     }
 
-    expect(onChangeMock).toBeCalledTimes(2);
+    expect(onChangeMock).toBeCalledTimes(1);
     expect(onChangeMock).toBeCalledWith([{ email: undefined, forename: 'Max', surname: undefined }]);
   });
 });

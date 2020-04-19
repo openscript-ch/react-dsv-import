@@ -28,16 +28,13 @@ const parseData = <T>(value: string, columns: ColumnsType<T>, delimiter: Delimit
   });
 };
 
-export const createSimpleParserMiddleware = <T>(onChange?: (value: T[]) => void) => {
+export const createSimpleParserMiddleware = <T>() => {
   return (state: State<T>, action: Actions<T>) => {
     let newState = reducer<T>(state, action);
 
     if (action.type === 'setRaw') {
       const delimiter = detectDelimiterFromValue(action.raw);
       const parsed = parseData<T>(action.raw, state.columns, delimiter);
-      if (onChange) {
-        onChange(parsed);
-      }
       newState = reducer<T>(state, { type: 'setParsed', parsed });
     }
 
