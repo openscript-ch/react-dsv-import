@@ -15,7 +15,7 @@ const EventListener = <T extends { [key: string]: string }>(props: EventListener
     if (context.parsed && props.onChange) {
       props.onChange(context.parsed);
     }
-  });
+  }, [context.parsed]);
 
   return null;
 };

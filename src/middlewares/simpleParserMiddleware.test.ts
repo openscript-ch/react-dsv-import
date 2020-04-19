@@ -21,6 +21,13 @@ describe('simpleParserMiddleware', () => {
     expect(newState.parsed).toStrictEqual([{ forename: 'Max', surname: undefined, email: undefined }]);
   });
 
+  it('should set parsed data to an empty array if there is no raw data', () => {
+    middleware(defaultState, { type: 'setRaw', raw: 'Max' });
+    const newState = middleware(defaultState, { type: 'setRaw', raw: '' });
+
+    expect(newState.parsed).toStrictEqual([]);
+  });
+
   it('should detect the correct delimiter from raw data', () => {
     Object.values(Delimiter).forEach((d) => {
       const newState = middleware(defaultState, { type: 'setRaw', raw: rawData.replace(/!/g, d) });
