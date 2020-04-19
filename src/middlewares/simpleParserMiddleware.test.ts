@@ -34,15 +34,4 @@ describe('simpleParserMiddleware', () => {
       });
     });
   });
-
-  it('should invoke the onChange callback', () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
-    const onChangeMock = jest.fn((_value: TestType[]) => {});
-    const middlewareWithOnChange = createSimpleParserMiddleware<TestType>(onChangeMock);
-
-    middlewareWithOnChange(defaultState, { type: 'setRaw', raw: 'Max' });
-
-    expect(onChangeMock).toBeCalledTimes(1);
-    expect(onChangeMock).toBeCalledWith([{ forename: 'Max', surname: undefined, email: undefined }]);
-  });
 });
