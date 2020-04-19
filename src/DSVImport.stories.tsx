@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DSVImport, ColumnsType } from './';
 import { action } from '@storybook/addon-actions';
 
@@ -23,3 +23,24 @@ export const BasicUsage = () => {
   );
 };
 BasicUsage.story = { name: 'Basic usage' };
+
+export const UsingCallbacks = () => {
+  const [state, setState] = useState<BasicType[]>([]);
+
+  const handleOnChange = (value: BasicType[]) => {
+    onChangeAction(value);
+    setState(value);
+  };
+
+  return (
+    <>
+      <DSVImport<BasicType> columns={columns} onChange={handleOnChange}>
+        <DSVImport.TextareaInput />
+        <DSVImport.TablePreview />
+      </DSVImport>
+      <h2>Current state as JSON:</h2>
+      {JSON.stringify(state)}
+    </>
+  );
+};
+UsingCallbacks.story = { name: 'Using callbacks with states' };

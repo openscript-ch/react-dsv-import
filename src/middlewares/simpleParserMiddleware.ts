@@ -34,7 +34,12 @@ export const createSimpleParserMiddleware = <T>() => {
 
     if (action.type === 'setRaw') {
       const delimiter = detectDelimiterFromValue(action.raw);
-      const parsed = parseData<T>(action.raw, state.columns, delimiter);
+
+      let parsed: T[] = [];
+      if (action.raw !== '') {
+        parsed = parseData<T>(action.raw, state.columns, delimiter);
+      }
+
       newState = reducer<T>(state, { type: 'setParsed', parsed });
     }
 
