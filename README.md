@@ -8,6 +8,8 @@ Flexible, typed and easy to use React Component ⚛ to provide CSV, TSV and othe
 [![Maintainability](https://api.codeclimate.com/v1/badges/f05b123887e046758a96/maintainability)](https://codeclimate.com/github/openscript/react-dsv-import/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f05b123887e046758a96/test_coverage)](https://codeclimate.com/github/openscript/react-dsv-import/test_coverage)
 
+![Demonstration](./docs/demo.apng)
+
 ## Getting started
 Add the package with the package manager of choice to your project:
 
