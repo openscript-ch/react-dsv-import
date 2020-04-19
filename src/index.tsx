@@ -11,3 +11,4 @@ DSVImport.TextareaInput = TextareaInput;
 DSVImport.TablePreview = TablePreview;
 
 export { ColumnsType } from './models/column';
+export { useDSVImport } from './features/context';
