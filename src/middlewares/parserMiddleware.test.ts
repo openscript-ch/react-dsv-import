@@ -1,9 +1,9 @@
-import { createSimpleParserMiddleware } from './simpleParserMiddleware';
+import { createParserMiddleware } from './parserMiddleware';
 import { State } from '../models/state';
 import { ColumnsType } from '../models/column';
 import { Delimiter } from '../models/delimiter';
 
-describe('simpleParserMiddleware', () => {
+describe('parserMiddleware', () => {
   type TestType = { forename: string; surname: string; email: string };
   const columns: ColumnsType<TestType> = [
     { key: 'forename', label: 'Forename' },
@@ -11,7 +11,7 @@ describe('simpleParserMiddleware', () => {
     { key: 'email', label: 'Email' }
   ];
   const defaultState: State<TestType> = { columns };
-  const middleware = createSimpleParserMiddleware<TestType>();
+  const middleware = createParserMiddleware<TestType>();
 
   const rawData = 'Max!Muster!max@example.com\n!!unknown@example.com';
 

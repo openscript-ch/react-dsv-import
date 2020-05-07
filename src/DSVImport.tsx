@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, useReducer, useEffect } from 'react';
 import { ColumnsType } from './models/column';
 import { getDSVImportContext, useDSVImport } from './features/context';
-import { createSimpleParserMiddleware } from './middlewares/simpleParserMiddleware';
+import { createParserMiddleware } from './middlewares/parserMiddleware';
 import { State } from './models/state';
 
 interface EventListenerProps<T> {
@@ -27,7 +27,7 @@ export interface Props<T> {
 
 export const DSVImport = <T extends { [key: string]: string }>(props: PropsWithChildren<Props<T>>) => {
   const DSVImportContext = getDSVImportContext<T>();
-  const middleware = createSimpleParserMiddleware<T>();
+  const middleware = createParserMiddleware<T>();
   const initialValues: State<T> = { columns: props.columns };
 
   return (
