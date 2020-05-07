@@ -28,7 +28,7 @@ const parseData = <T>(value: string, columns: ColumnsType<T>, delimiter: Delimit
   });
 };
 
-export const createSimpleParserMiddleware = <T>() => {
+export const createParserMiddleware = <T>() => {
   return (state: State<T>, action: Actions<T>) => {
     let newState = reducer<T>(state, action);
 
