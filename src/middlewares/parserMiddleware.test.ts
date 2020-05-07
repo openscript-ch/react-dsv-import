@@ -16,28 +16,44 @@ describe('parserMiddleware', () => {
   const rawData = 'Max!Muster!max@example.com\n!!unknown@example.com';
 
   it('should set new parsed data when raw data is set', () => {
-    const newState = middleware(defaultState, { type: 'setRaw', raw: 'Max' });
+    const dispatchMock = jest.fn();
+    middleware(defaultState, dispatchMock, { type: 'setRaw', raw: 'Max' });
 
-    expect(newState.parsed).toStrictEqual([{ forename: 'Max', surname: undefined, email: undefined }]);
+    expect(dispatchMock).toBeCalledTimes(1);
+    expect(dispatchMock).toBeCalledWith({
+      type: 'setParsed',
+      parsed: [{ forename: 'Max', surname: undefined, email: undefined }]
+    });
   });
 
   it('should set parsed data to an empty array if there is no raw data', () => {
-    middleware(defaultState, { type: 'setRaw', raw: 'Max' });
-    const newState = middleware(defaultState, { type: 'setRaw', raw: '' });
+    const dispatchMock = jest.fn();
+    const stateWithRawData = {
+      ...defaultState,
+      raw: 'Max',
+      parsed: [{ forename: 'Max', surname: '', email: '' }]
+    };
+    middleware(stateWithRawData, dispatchMock, { type: 'setRaw', raw: '' });
 
-    expect(newState.parsed).toStrictEqual([]);
+    expect(dispatchMock).toBeCalledTimes(1);
+    expect(dispatchMock).toBeCalledWith({
+      type: 'setParsed',
+      parsed: []
+    });
   });
 
   it('should detect the correct delimiter from raw data', () => {
     Object.values(Delimiter).forEach((d) => {
-      const newState = middleware(defaultState, { type: 'setRaw', raw: rawData.replace(/!/g, d) });
+      const dispatchMock = jest.fn();
+      middleware(defaultState, dispatchMock, { type: 'setRaw', raw: rawData.replace(/!/g, d) });
 
-      expect(newState.parsed?.length).toBe(2);
-      expect(newState.parsed?.[0]).toStrictEqual({ forename: 'Max', surname: 'Muster', email: 'max@example.com' });
-      expect(newState.parsed?.[1]).toStrictEqual({
-        forename: '',
-        surname: '',
-        email: 'unknown@example.com'
+      expect(dispatchMock).toBeCalledTimes(1);
+      expect(dispatchMock).toBeCalledWith({
+        type: 'setParsed',
+        parsed: [
+          { forename: 'Max', surname: 'Muster', email: 'max@example.com' },
+          { forename: '', surname: '', email: 'unknown@example.com' }
+        ]
       });
     });
   });

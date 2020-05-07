@@ -14,6 +14,12 @@ export const reducer = <T>(state: State<T>, action: Actions<T>) => {
   }
 };
 
+export const createReducer = <T>() => {
+  return (state: State<T>, action: Actions<T>) => {
+    return reducer(state, action);
+  };
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let contextSingleton: React.Context<[State<any>, Dispatch<Actions<any>>]>;
 export const getDSVImportContext = <T>() => {

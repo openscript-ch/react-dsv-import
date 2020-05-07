@@ -1,7 +1,8 @@
 import { State } from '../models/state';
-import { Actions, reducer } from '../features/context';
+import { Actions } from '../features/context';
 import { Delimiter } from '../models/delimiter';
 import { ColumnsType } from '../models/column';
+import { Dispatch } from 'react';
 
 const detectDelimiterFromValue = (value: string, defaultDelimiter = Delimiter.COMMA) => {
   let currentDelimiter = defaultDelimiter;
@@ -29,9 +30,7 @@ const parseData = <T>(value: string, columns: ColumnsType<T>, delimiter: Delimit
 };
 
 export const createParserMiddleware = <T>() => {
-  return (state: State<T>, action: Actions<T>) => {
-    let newState = reducer<T>(state, action);
-
+  return (state: State<T>, next: Dispatch<Actions<T>>, action: Actions<T>) => {
     if (action.type === 'setRaw') {
       const delimiter = detectDelimiterFromValue(action.raw);
 
@@ -40,9 +39,7 @@ export const createParserMiddleware = <T>() => {
         parsed = parseData<T>(action.raw, state.columns, delimiter);
       }
 
-      newState = reducer<T>(state, { type: 'setParsed', parsed });
+      next({ type: 'setParsed', parsed });
     }
-
-    return newState;
   };
 };
