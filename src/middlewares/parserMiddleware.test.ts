@@ -26,6 +26,13 @@ describe('parserMiddleware', () => {
     });
   });
 
+  it('should only be triggered on new raw data', () => {
+    const dispatchMock = jest.fn();
+    middleware(defaultState, dispatchMock, { type: 'setValidation', errors: [] });
+
+    expect(dispatchMock).toBeCalledTimes(0);
+  });
+
   it('should set parsed data to an empty array if there is no raw data', () => {
     const dispatchMock = jest.fn();
     const stateWithRawData = {

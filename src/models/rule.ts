@@ -1,4 +1,9 @@
+export type UniqueConstraint = { unique: boolean };
+export type CallbackConstraint = { callback: (value: string) => boolean };
+
+export type ConstraintType = UniqueConstraint | CallbackConstraint;
+
 export type Rule = {
   message: string;
-  constraint: { unique: boolean } | { callback: (value: string) => boolean };
+  constraint: ConstraintType;
 };
