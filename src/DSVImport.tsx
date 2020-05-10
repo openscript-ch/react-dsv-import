@@ -5,9 +5,11 @@ import { createParserMiddleware } from './middlewares/parserMiddleware';
 import { State } from './models/state';
 import { applyMiddlewares } from './middlewares/middleware';
 import { createValidatorMiddleware } from './middlewares/validatorMiddleware';
+import { ValidationError } from './models/validation';
 
 interface EventListenerProps<T> {
   onChange?: (value: T[]) => void;
+  onValidation?: (errors: ValidationError<T>[]) => void;
 }
 
 const EventListener = <T extends { [key: string]: string }>(props: EventListenerProps<T>) => {
@@ -19,11 +21,18 @@ const EventListener = <T extends { [key: string]: string }>(props: EventListener
     }
   }, [context.parsed]);
 
+  useEffect(() => {
+    if (context.validation && props.onValidation) {
+      props.onValidation(context.validation);
+    }
+  }, [context.validation]);
+
   return null;
 };
 
 export interface Props<T> {
   onChange?: (value: T[]) => void;
+  onValidation?: (errors: ValidationError<T>[]) => void;
   columns: ColumnsType<T>;
 }
 
@@ -35,7 +44,7 @@ export const DSVImport = <T extends { [key: string]: string }>(props: PropsWithC
 
   return (
     <DSVImportContext.Provider value={[state, enhancedDispatch]}>
-      <EventListener<T> onChange={props.onChange} />
+      <EventListener<T> onChange={props.onChange} onValidation={props.onValidation} />
       {props.children}
     </DSVImportContext.Provider>
   );

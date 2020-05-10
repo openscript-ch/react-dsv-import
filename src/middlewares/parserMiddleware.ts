@@ -1,10 +1,10 @@
 import { State } from '../models/state';
-import { Actions } from '../features/context';
 import { Delimiter } from '../models/delimiter';
 import { ColumnsType } from '../models/column';
 import { Dispatch } from 'react';
+import { Actions } from '../models/actions';
 
-const detectDelimiterFromValue = (value: string, defaultDelimiter = Delimiter.COMMA) => {
+const detectDelimiterFromValue = (value: string, defaultDelimiter: Delimiter) => {
   let currentDelimiter = defaultDelimiter;
   let maximumScore = 0;
   Object.values(Delimiter).forEach((s) => {
@@ -32,7 +32,7 @@ const parseData = <T>(value: string, columns: ColumnsType<T>, delimiter: Delimit
 export const createParserMiddleware = <T>() => {
   return (state: State<T>, next: Dispatch<Actions<T>>, action: Actions<T>) => {
     if (action.type === 'setRaw') {
-      const delimiter = detectDelimiterFromValue(action.raw);
+      const delimiter = detectDelimiterFromValue(action.raw, Delimiter.COMMA);
 
       let parsed: T[] = [];
       if (action.raw !== '') {

@@ -61,7 +61,7 @@ The most important features of this component are:
  - ✅ DSV format detection
  - ✅ Fully compositable
  - ✅ Automatic testing with >90% coverage
- - ❌ Input validation
+ - ✅ Input validation
  - ❌ [Material UI](https://material-ui.com/) integration
  - ❌ [ant.design](https://ant.design/) integration
 

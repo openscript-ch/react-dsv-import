@@ -1,7 +1,6 @@
 import { State, emptyState } from '../models/state';
 import { createContext, Dispatch, useContext } from 'react';
-
-export type Actions<T> = { type: 'setRaw'; raw: string } | { type: 'setParsed'; parsed: T[] };
+import { Actions } from '../models/actions';
 
 export const reducer = <T>(state: State<T>, action: Actions<T>) => {
   switch (action.type) {
@@ -9,6 +8,8 @@ export const reducer = <T>(state: State<T>, action: Actions<T>) => {
       return { ...state, raw: action.raw };
     case 'setParsed':
       return { ...state, parsed: action.parsed };
+    case 'setValidation':
+      return { ...state, validation: action.errors };
     default:
       return state;
   }

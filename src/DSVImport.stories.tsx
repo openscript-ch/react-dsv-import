@@ -23,7 +23,7 @@ export const BasicUsage = () => {
 };
 BasicUsage.story = { name: 'Basic usage' };
 
-export const UsingCallbacks = () => {
+export const UsingOnChangeCallback = () => {
   const columns: ColumnsType<BasicType> = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
@@ -48,20 +48,22 @@ export const UsingCallbacks = () => {
     </>
   );
 };
-UsingCallbacks.story = { name: 'Using callbacks a state' };
+UsingOnChangeCallback.story = { name: 'Using on change callback' };
 
-export const UsingValidation = () => {
+export const UsingOnValidationCallback = () => {
   const columns: ColumnsType<BasicType> = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
-    { key: 'email', label: 'Email', rules: [{ constraint: { unique: true }, message: 'Must be unique' }] }
+    { key: 'email', label: 'Email', rules: [{ constraint: { unique: true }, message: 'Duplicates are not allowed' }] }
   ];
   const onChangeAction = action('Parsed value has changed');
+  const onValidationAction = action('Validation value has changed');
 
   return (
-    <DSVImport<BasicType> columns={columns} onChange={onChangeAction}>
+    <DSVImport<BasicType> columns={columns} onChange={onChangeAction} onValidation={onValidationAction}>
       <DSVImport.TextareaInput />
       <DSVImport.TablePreview />
     </DSVImport>
   );
 };
+UsingOnValidationCallback.story = { name: 'Using on validation callback' };
