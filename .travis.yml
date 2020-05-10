@@ -23,6 +23,9 @@ script:
 after_script:
   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./cc-test-reporter upload-coverage; fi'
 
+before_deploy:
+  - 'cp -R ./docs/* ./storybook-static'
+
 deploy:
   - provider: pages
     local_dir: storybook-static
