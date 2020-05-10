@@ -40,8 +40,8 @@ describe('TablePreview', () => {
     const { container } = renderComponent({
       ...defaultState,
       parsed: [
-        { forename: 'Max', surname: 'Muster', email: 'max@example.com' },
-        { forename: '', surname: '', email: 'unknown@example.com' }
+        { forename: 'Max', surname: 'Muster', email: 'example@example.com' },
+        { forename: '', surname: '', email: 'example@example.com' }
       ]
     });
     const tableBody = container.querySelector('tbody');
@@ -49,6 +49,28 @@ describe('TablePreview', () => {
     expect(tableBody?.childElementCount).toBe(2);
 
     expect(tableBody?.children[0].children[0]).toHaveTextContent('Max');
-    expect(tableBody?.children[1].children[2]).toHaveTextContent('unknown@example.com');
+    expect(tableBody?.children[1].children[2]).toHaveTextContent('example@example.com');
+  });
+
+  it('should render the parsed content in the table body', () => {
+    const { container } = renderComponent({
+      ...defaultState,
+      parsed: [
+        { forename: 'Max', surname: 'Muster', email: 'example@example.com' },
+        { forename: '', surname: '', email: 'example@example.com' }
+      ],
+      validation: [
+        { column: 'email', message: 'Contains duplicates' },
+        { column: 'forename', row: 1, message: 'Forename is required' }
+      ]
+    });
+    const tableBody = container.querySelector('tbody');
+    const tableHead = container.querySelector('thead tr');
+
+    expect(tableHead?.children[2]).toHaveClass('error');
+    expect(tableHead?.children[2]).toHaveAttribute('title', 'Contains duplicates');
+
+    expect(tableBody?.children[1].children[0]).toHaveClass('error');
+    expect(tableBody?.children[1].children[0]).toHaveAttribute('title', 'Forename is required');
   });
 });
