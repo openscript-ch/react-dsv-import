@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDSVImport } from '../../features/context';
 
-interface Props {
+export interface TablePreviewProps {
   className?: string;
 }
 
-export const TablePreview: React.FC<Props> = (props) => {
+export const TablePreview: React.FC<TablePreviewProps> = (props) => {
   const [context] = useDSVImport();
 
   const getColumnValidationError = (columnKey: string) => {
