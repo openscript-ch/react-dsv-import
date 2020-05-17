@@ -60,15 +60,12 @@ describe('TablePreview', () => {
         { forename: '', surname: '', email: 'example@example.com' }
       ],
       validation: [
-        { column: 'email', message: 'Contains duplicates' },
+        { column: 'email', row: 0, message: 'Contains duplicates' },
+        { column: 'email', row: 1, message: 'Contains duplicates' },
         { column: 'forename', row: 1, message: 'Forename is required' }
       ]
     });
     const tableBody = container.querySelector('tbody');
-    const tableHead = container.querySelector('thead tr');
-
-    expect(tableHead?.children[2]).toHaveClass('error');
-    expect(tableHead?.children[2]).toHaveAttribute('title', 'Contains duplicates');
 
     expect(tableBody?.children[1].children[0]).toHaveClass('error');
     expect(tableBody?.children[1].children[0]).toHaveAttribute('title', 'Forename is required');

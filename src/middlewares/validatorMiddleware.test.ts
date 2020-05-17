@@ -34,7 +34,10 @@ describe('validatorMiddleware', () => {
 
     expect(dispatchMock).toBeCalledWith({
       type: 'setValidation',
-      errors: [{ column: 'email', message: 'Contains duplicates' }]
+      errors: [
+        { column: 'email', row: 0, message: 'Contains duplicates' },
+        { column: 'email', row: 1, message: 'Contains duplicates' }
+      ]
     });
   });
 

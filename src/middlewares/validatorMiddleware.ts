@@ -8,6 +8,10 @@ const onlyUniqueValues = (data: string[]) => {
   return new Set(data).size === data.length;
 };
 
+const findDuplicates = (data: string[]) => {
+  return Array.from(new Set(data.filter((item, index) => data.indexOf(item) != index)));
+};
+
 const validateColumn = <T>(key: keyof T, data: T[keyof T][], rules?: Rule[]): ValidationError<T>[] => {
   const errors: ValidationError<T>[] = [];
 
@@ -15,7 +19,12 @@ const validateColumn = <T>(key: keyof T, data: T[keyof T][], rules?: Rule[]): Va
     const values = data.map((d) => new String(d).toString());
     rules.forEach((r) => {
       if ((r.constraint as UniqueConstraint).unique && !onlyUniqueValues(values)) {
-        errors.push({ column: key, message: r.message });
+        const duplicates = findDuplicates(values);
+        values.forEach((v, i) => {
+          if (duplicates.indexOf(v) !== -1) {
+            errors.push({ column: key, row: i, message: r.message });
+          }
+        });
       } else if (typeof (r.constraint as CallbackConstraint).callback === 'function') {
         const callback = (r.constraint as CallbackConstraint).callback;
         values.forEach((v, i) => {
