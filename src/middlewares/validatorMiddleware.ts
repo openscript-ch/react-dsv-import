@@ -28,7 +28,7 @@ const validateColumn = <T>(key: keyof T, data: T[keyof T][], rules?: Rule[]): Va
       } else if (typeof (r.constraint as CallbackConstraint).callback === 'function') {
         const callback = (r.constraint as CallbackConstraint).callback;
         values.forEach((v, i) => {
-          if (!callback(v)) {
+          if (callback(v)) {
             errors.push({ column: key, row: i, message: r.message });
           }
         });

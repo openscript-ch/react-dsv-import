@@ -13,7 +13,8 @@ describe('validatorMiddleware', () => {
   const middleware = createValidatorMiddleware<TestType>();
   const parsed: TestType[] = [
     { forename: 'Hans', surname: 'Muster', email: 'h.muster@example.com' },
-    { forename: 'Heidi', surname: 'Muster', email: 'h.muster@example.com' }
+    { forename: 'Heidi', surname: 'Muster', email: 'h.muster@example.com' },
+    { forename: 'Joe', surname: 'Doe', email: 'j.doe@example.com' }
   ];
 
   it('should return an empty array if there are no errors', () => {
@@ -53,7 +54,7 @@ describe('validatorMiddleware', () => {
 
     expect(dispatchMock).toBeCalledWith({
       type: 'setValidation',
-      errors: [{ column: 'forename', row: 1, message: "No 'Hans' allowed" }]
+      errors: [{ column: 'forename', row: 0, message: "No 'Hans' allowed" }]
     });
   });
 });

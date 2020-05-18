@@ -62,6 +62,7 @@ describe('TablePreview', () => {
       validation: [
         { column: 'email', row: 0, message: 'Contains duplicates' },
         { column: 'email', row: 1, message: 'Contains duplicates' },
+        { column: 'email', row: 1, message: 'No example address, please' },
         { column: 'forename', row: 1, message: 'Forename is required' }
       ]
     });
@@ -69,5 +70,9 @@ describe('TablePreview', () => {
 
     expect(tableBody?.children[1].children[0]).toHaveClass('error');
     expect(tableBody?.children[1].children[0]).toHaveAttribute('title', 'Forename is required');
+    expect(tableBody?.children[1].children[2]).toHaveAttribute(
+      'title',
+      'Contains duplicates;No example address, please'
+    );
   });
 });

@@ -16,7 +16,7 @@ export const TablePreview: React.FC<TablePreviewProps> = (props) => {
 
   const Cell: React.FC<{ columnKey: string; rowIndex: number }> = (props) => {
     const errors = getCellValidationError(props.columnKey, props.rowIndex);
-    const messages = errors?.map((e) => e?.message).join(';');
+    const messages = errors?.map((e) => e.message).join(';');
 
     return (
       <td className={messages ? 'error' : ''} title={messages}>
