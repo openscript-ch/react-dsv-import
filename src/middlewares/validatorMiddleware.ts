@@ -4,12 +4,12 @@ import { Actions } from '../models/actions';
 import { Rule, UniqueConstraint, CallbackConstraint } from '../models/rule';
 import { ValidationError } from '../models/validation';
 
-const onlyUniqueValues = (data: string[]) => {
-  return new Set(data).size === data.length;
+const onlyUniqueValues = (values: string[]) => {
+  return new Set(values).size === values.length;
 };
 
-const findDuplicates = (data: string[]) => {
-  return Array.from(new Set(data.filter((item, index) => data.indexOf(item) != index)));
+const getDuplicates = (values: string[]) => {
+  return Array.from(new Set(values.filter((item, index) => values.indexOf(item) != index)));
 };
 
 const validateColumn = <T>(key: keyof T, data: T[keyof T][], rules?: Rule[]): ValidationError<T>[] => {
@@ -19,7 +19,7 @@ const validateColumn = <T>(key: keyof T, data: T[keyof T][], rules?: Rule[]): Va
     const values = data.map((d) => new String(d).toString());
     rules.forEach((r) => {
       if ((r.constraint as UniqueConstraint).unique && !onlyUniqueValues(values)) {
-        const duplicates = findDuplicates(values);
+        const duplicates = getDuplicates(values);
         values.forEach((v, i) => {
           if (duplicates.indexOf(v) !== -1) {
             errors.push({ column: key, row: i, message: r.message });
