@@ -12,3 +12,4 @@ DSVImport.TablePreview = TablePreview;
 
 export { ColumnsType } from './models/column';
 export { useDSVImport } from './features/context';
+export { Rule } from './models/rule';

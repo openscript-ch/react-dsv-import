@@ -62,8 +62,9 @@ The most important features of this component are:
  - ✅ Fully compositable
  - ✅ Automatic testing with >90% coverage
  - ✅ Input validation
- - ❌ [Material UI](https://material-ui.com/) integration
- - ❌ [ant.design](https://ant.design/) integration
+ - ✅ [Ant Design](https://ant.design/) integration (see storybook)
+ - ❌ Input transformation
+ - ❌ [Material UI](https://material-ui.com/) integration (see storybook)
 
 ✅ means the feature is implemented and released. ❌ indicates that a feature is planned.
 
