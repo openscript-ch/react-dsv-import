@@ -1,0 +1,73 @@
+import { Meta, Description, Source } from '@storybook/addon-docs/blocks';
+import Readme from '../README.md';
+
+<Meta title="Usage|Integrations/Ant Design" />
+
+# Ant Design integration
+This page shows how an input and a preview component with Ant Design (`>= 4`) can be built and connected to this component.
+
+First the imports need to be declared.
+
+<Source language='tsx' code={`
+import * as React from 'react';
+import { DSVImport as Import, ColumnsType, useDSVImport } from 'react-dsv-import';
+import { Form, Input, Table } from 'antd';
+`} />
+
+## Input component
+<Source language='tsx' code={`
+const TextareaInput: React.FC = () => {
+  const [, dispatch] = useDSVImport();
+ 
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    dispatch({ type: 'setRaw', raw: event.target.value });
+  };
+ 
+  return <Input.TextArea rows={15} onChange={handleChange} />;
+};
+`} />
+
+## Preview component
+<Source language='tsx' code={`
+const TablePreview: React.FC = () => {
+  const [context] = useDSVImport();
+ 
+  const getRowKey = (record: { [key: string]: string }) => {
+    return context.parsed.indexOf(record);
+  };
+ 
+  return (
+    <Table pagination={false} dataSource={context.parsed} rowKey={getRowKey}>
+      {context.columns.map((r) => {
+        return <Table.Column key={r.key} dataIndex={r.key} title={r.label ? r.label : r.key} />;
+      })}
+    </Table>
+  );
+};
+`} />
+
+## Create context
+
+<Source language='tsx' code={`
+export interface Props<T> {
+  onChange?: (value: T[]) => void;
+  columns: ColumnsType<T>;
+}
+ 
+export const DSVImport = <T extends { [key: string]: string }>(props: Props<T>) => {
+  const intl = useIntl();
+ 
+  return (
+    <Form layout='vertical'>
+      <Import<T> columns={props.columns} onChange={props.onChange}>
+        <Form.Item label='Input'>
+          <TextareaInput />
+        </Form.Item>
+        <Form.Item label='Preview'>
+          <TablePreview />
+        </Form.Item>
+      </Import>
+    </Form>
+  );
+};
+`} />
