@@ -6,6 +6,8 @@ import { State } from './models/state';
 import { applyMiddlewares } from './middlewares/middleware';
 import { createValidatorMiddleware } from './middlewares/validatorMiddleware';
 import { ValidationError } from './models/validation';
+import { Transformers } from './models/transformer';
+import { createTransformerMiddleware } from './middlewares/transformerMiddleware';
 
 interface EventListenerProps<T> {
   onChange?: (value: T[]) => void;
@@ -33,14 +35,21 @@ const EventListener = <T extends { [key: string]: string }>(props: EventListener
 export interface Props<T> {
   onChange?: (value: T[]) => void;
   onValidation?: (errors: ValidationError<T>[]) => void;
+  transformers?: Transformers<T>;
   columns: ColumnsType<T>;
 }
 
 export const DSVImport = <T extends { [key: string]: string }>(props: PropsWithChildren<Props<T>>) => {
   const DSVImportContext = getDSVImportContext<T>();
-  const initialValues: State<T> = { columns: props.columns };
+  const initialValues: State<T> = { columns: props.columns, transformers: props.transformers };
   const [state, dispatch] = useReducer(createReducer<T>(), initialValues);
-  const enhancedDispatch = applyMiddlewares(state, dispatch, createParserMiddleware(), createValidatorMiddleware());
+  const enhancedDispatch = applyMiddlewares(
+    state,
+    dispatch,
+    createParserMiddleware(),
+    createTransformerMiddleware(),
+    createValidatorMiddleware()
+  );
 
   return (
     <DSVImportContext.Provider value={[state, enhancedDispatch]}>

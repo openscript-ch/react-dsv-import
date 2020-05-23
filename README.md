@@ -63,7 +63,7 @@ The most important features of this component are:
  - ✅ Automatic testing with >90% coverage
  - ✅ Input validation
  - ✅ [Ant Design](https://ant.design/) integration (see storybook)
- - ❌ Input transformation
+ - ✅ Input transformation (e.g. trim, ...)
  - ❌ [Material UI](https://material-ui.com/) integration (see storybook)
 
 ✅ means the feature is implemented and released. ❌ indicates that a feature is planned.
@@ -91,3 +91,4 @@ The most important features of this component are:
  - [Article: Using ESLint and Prettier in a TypeScript Project](https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project)
  - [Template: Rollup Starter Lib (TypeScript)](https://github.com/rollup/rollup-starter-lib/tree/typescript)
  - [Article: Creating a React Component library using Rollup, Typescript, Sass and Storybook](https://blog.harveydelaney.com/creating-your-own-react-component-library/) <br> Explains how to create a React component library using Rollup
+ - [Template: Debugging tests in VS Code](https://github.com/microsoft/vscode-recipes/tree/master/debugging-jest-tests)
