@@ -15,6 +15,8 @@ describe('validatorMiddleware', () => {
     { forename: 'Heidi', surname: ' Muster', email: 'h.muster@example.com' },
     { forename: 'Joe', surname: 'Doe', email: ' j.doe@example.com ' }
   ];
+  const trimTransformer = (value: string) => value.trim();
+  const markTransformer = (value: string) => `${value}!`;
 
   it('should not dispatch if there are no transformers', () => {
     const state: State<TestType> = { columns: defaultColumns };
@@ -25,8 +27,7 @@ describe('validatorMiddleware', () => {
   });
 
   it('should run a transformer on all values', () => {
-    const trimTransformer = (value: string) => value.trim();
-    const state: State<TestType> = { columns: defaultColumns, transformers: [{ transformer: trimTransformer }] };
+    const state: State<TestType> = { columns: defaultColumns, transformers: [trimTransformer] };
     const dispatchMock = jest.fn();
 
     middleware(state, dispatchMock, { type: 'setParsed', parsed });
@@ -42,10 +43,12 @@ describe('validatorMiddleware', () => {
   });
 
   it('should run transformers on values of a certain column', () => {
-    const trimTransformer = (value: string) => value.trim();
     const state: State<TestType> = {
-      columns: defaultColumns,
-      transformers: [{ transformer: trimTransformer, column: 'surname' }]
+      columns: [
+        { key: 'forename', label: 'Forename' },
+        { key: 'surname', label: 'Surname', transformers: [trimTransformer, markTransformer] },
+        { key: 'email', label: 'Email' }
+      ]
     };
     const dispatchMock = jest.fn();
 
@@ -54,9 +57,9 @@ describe('validatorMiddleware', () => {
     expect(dispatchMock).toBeCalledWith({
       type: 'setParsed',
       parsed: [
-        { forename: 'Hans', surname: 'Muster', email: 'h.muster@example.com' },
-        { forename: 'Heidi', surname: 'Muster', email: 'h.muster@example.com' },
-        { forename: 'Joe', surname: 'Doe', email: ' j.doe@example.com ' }
+        { forename: 'Hans', surname: 'Muster!', email: 'h.muster@example.com' },
+        { forename: 'Heidi', surname: 'Muster!', email: 'h.muster@example.com' },
+        { forename: 'Joe', surname: 'Doe!', email: ' j.doe@example.com ' }
       ]
     });
   });

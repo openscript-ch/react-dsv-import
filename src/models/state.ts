@@ -1,12 +1,12 @@
 import { ColumnsType } from './column';
 import { ValidationError } from './validation';
-import { Transformers } from './transformer';
+import { Transformer } from './transformer';
 
 export interface State<T> {
   raw?: string;
   parsed?: T[];
   validation?: ValidationError<T>[];
-  transformers?: Transformers<T>;
+  transformers?: Transformer[];
   columns: ColumnsType<T>;
 }
 

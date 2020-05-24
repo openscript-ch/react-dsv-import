@@ -6,8 +6,8 @@ import { State } from './models/state';
 import { applyMiddlewares } from './middlewares/middleware';
 import { createValidatorMiddleware } from './middlewares/validatorMiddleware';
 import { ValidationError } from './models/validation';
-import { Transformers } from './models/transformer';
 import { createTransformerMiddleware } from './middlewares/transformerMiddleware';
+import { Transformer } from './models/transformer';
 
 interface EventListenerProps<T> {
   onChange?: (value: T[]) => void;
@@ -35,7 +35,7 @@ const EventListener = <T extends { [key: string]: string }>(props: EventListener
 export interface Props<T> {
   onChange?: (value: T[]) => void;
   onValidation?: (errors: ValidationError<T>[]) => void;
-  transformers?: Transformers<T>;
+  transformers?: Transformer[];
   columns: ColumnsType<T>;
 }
 
