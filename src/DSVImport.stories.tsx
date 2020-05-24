@@ -3,7 +3,7 @@ import { DSVImport, ColumnsType } from './';
 import { action } from '@storybook/addon-actions';
 import styled from '@emotion/styled';
 
-export default { title: 'Usage|API' };
+export default { title: 'Usage|Examples' };
 
 type BasicType = { forename: string; surname: string; email: string };
 

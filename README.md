@@ -51,6 +51,39 @@ const columns = [
 </DSVImport>
 ```
 
+## API
+The `<DSVImport<T>>` components has the following API:
+
+| Property       | Type                           | Description                                                |
+|:---------------|:-------------------------------|:-----------------------------------------------------------|
+| `columns`      | [ColumnType](#columntype)      | Description of the expected columns                        |
+| `transformers?`| [Transformer](#transformer)`[]`| Globally applied transformers                              |
+| `onChange?`    | `(value: T[]) => void`         | Callback which is called after parsing the input           |
+| `onValidation?`| `(errors: Error<T>[]) => void` | Callback which is called if there are validation errors    |
+   
+### Types
+Within this section additional types are explained.
+
+#### ColumnType
+| Property        | Type                         | Description                                                 |
+|:----------------|:-----------------------------|:------------------------------------------------------------|
+| `key`           | `string`                     | Key of the current column                                   |
+| `label`         | `string`                     | Label of the current column, which can be shown to the user |
+| `rules?`        | [Rule](#rule)`[]`            | Validation rules which are applied to this column           |
+| `transformers?` | [Transformer](#transformer)`[]`| Transformers which are applied to this column             |
+
+#### Rule
+| Property        | Type                         | Description                                                 |
+|:----------------|:-----------------------------|:------------------------------------------------------------|
+| `message`       | `string`                     | Error message                                               |
+| `contraint`     | `{ unique: boolean } | { constraint: `[Constraint](#constraint)`}` | Constraint for this rule |
+
+#### Constraint
+`(value: string) => boolean`
+
+#### Transformer
+`(value: string) => string`
+
 ## Project
 This section describes the status of the project.
 
@@ -63,7 +96,7 @@ The most important features of this component are:
  - ✅ Automatic testing with >90% coverage
  - ✅ Input validation
  - ✅ [Ant Design](https://ant.design/) integration (see storybook)
- - ❌ Input transformation
+ - ✅ Input transformation (e.g. trim, ...)
  - ❌ [Material UI](https://material-ui.com/) integration (see storybook)
 
 ✅ means the feature is implemented and released. ❌ indicates that a feature is planned.
@@ -91,3 +124,4 @@ The most important features of this component are:
  - [Article: Using ESLint and Prettier in a TypeScript Project](https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project)
  - [Template: Rollup Starter Lib (TypeScript)](https://github.com/rollup/rollup-starter-lib/tree/typescript)
  - [Article: Creating a React Component library using Rollup, Typescript, Sass and Storybook](https://blog.harveydelaney.com/creating-your-own-react-component-library/) <br> Explains how to create a React component library using Rollup
+ - [Template: Debugging tests in VS Code](https://github.com/microsoft/vscode-recipes/tree/master/debugging-jest-tests)
