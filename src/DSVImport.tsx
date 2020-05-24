@@ -33,10 +33,10 @@ const EventListener = <T extends { [key: string]: string }>(props: EventListener
 };
 
 export interface Props<T> {
+  columns: ColumnsType<T>;
   onChange?: (value: T[]) => void;
   onValidation?: (errors: ValidationError<T>[]) => void;
   transformers?: Transformer[];
-  columns: ColumnsType<T>;
 }
 
 export const DSVImport = <T extends { [key: string]: string }>(props: PropsWithChildren<Props<T>>) => {

@@ -51,6 +51,39 @@ const columns = [
 </DSVImport>
 ```
 
+## API
+The `<DSVImport<T>>` components has the following API:
+
+| Property       | Type                           | Description                                                |
+|:---------------|:-------------------------------|:-----------------------------------------------------------|
+| `columns`      | [ColumnType](#columntype)      | Description of the expected columns                        |
+| `transformers?`| [Transformer](#transformer)`[]`| Globally applied transformers                              |
+| `onChange?`    | `(value: T[]) => void`         | Callback which is called after parsing the input           |
+| `onValidation?`| `(errors: Error<T>[]) => void` | Callback which is called if there are validation errors    |
+   
+### Types
+Within this section additional types are explained.
+
+#### ColumnType
+| Property        | Type                         | Description                                                 |
+|:----------------|:-----------------------------|:------------------------------------------------------------|
+| `key`           | `string`                     | Key of the current column                                   |
+| `label`         | `string`                     | Label of the current column, which can be shown to the user |
+| `rules?`        | [Rule](#rule)`[]`            | Validation rules which are applied to this column           |
+| `transformers?` | [Transformer](#transformer)`[]`| Transformers which are applied to this column             |
+
+#### Rule
+| Property        | Type                         | Description                                                 |
+|:----------------|:-----------------------------|:------------------------------------------------------------|
+| `message`       | `string`                     | Error message                                               |
+| `contraint`     | `{ unique: boolean } | { constraint: `[Constraint](#constraint)`}` | Constraint for this rule |
+
+#### Constraint
+`(value: string) => boolean`
+
+#### Transformer
+`(value: string) => string`
+
 ## Project
 This section describes the status of the project.
 
