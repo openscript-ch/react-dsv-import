@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useReducer, useEffect } from 'react';
-import { ColumnsType } from './models/column';
+import { ColumnType } from './models/column';
 import { getDSVImportContext, useDSVImport, createReducer } from './features/context';
 import { createParserMiddleware } from './middlewares/parserMiddleware';
 import { State } from './models/state';
@@ -33,7 +33,7 @@ const EventListener = <T extends { [key: string]: string }>(props: EventListener
 };
 
 export interface Props<T> {
-  columns: ColumnsType<T>;
+  columns: ColumnType<T>[];
   onChange?: (value: T[]) => void;
   onValidation?: (errors: ValidationError<T>[]) => void;
   transformers?: Transformer[];

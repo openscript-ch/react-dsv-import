@@ -1,10 +1,10 @@
 import { createValidatorMiddleware } from './validatorMiddleware';
 import { State } from '../models/state';
-import { ColumnsType } from '../models/column';
+import { ColumnType } from '../models/column';
 
 describe('validatorMiddleware', () => {
   type TestType = { forename: string; surname: string; email: string };
-  const defaultColumns: ColumnsType<TestType> = [
+  const defaultColumns: ColumnType<TestType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
     { key: 'email', label: 'Email' }
@@ -27,7 +27,7 @@ describe('validatorMiddleware', () => {
 
   it('should validate unique constraints', () => {
     const dispatchMock = jest.fn();
-    const columns: ColumnsType<TestType> = [...defaultColumns];
+    const columns: ColumnType<TestType>[] = [...defaultColumns];
     columns[2] = { ...defaultColumns[2], rules: [{ constraint: { unique: true }, message: 'Contains duplicates' }] };
     const state: State<TestType> = { columns };
 
@@ -44,7 +44,7 @@ describe('validatorMiddleware', () => {
 
   it('should validate with callback constraints', () => {
     const dispatchMock = jest.fn();
-    const columns: ColumnsType<TestType> = [...defaultColumns];
+    const columns: ColumnType<TestType>[] = [...defaultColumns];
     columns[0] = {
       ...defaultColumns[0],
       rules: [{ constraint: { callback: (value) => value === 'Hans' }, message: "No 'Hans' allowed" }]

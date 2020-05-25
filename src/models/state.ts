@@ -1,4 +1,4 @@
-import { ColumnsType } from './column';
+import { ColumnType } from './column';
 import { ValidationError } from './validation';
 import { Transformer } from './transformer';
 
@@ -7,7 +7,7 @@ export interface State<T> {
   parsed?: T[];
   validation?: ValidationError<T>[];
   transformers?: Transformer[];
-  columns: ColumnsType<T>;
+  columns: ColumnType<T>[];
 }
 
 export const emptyState: State<{ [key: string]: string }> = {

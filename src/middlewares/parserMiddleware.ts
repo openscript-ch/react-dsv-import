@@ -1,6 +1,6 @@
 import { State } from '../models/state';
 import { Delimiter } from '../models/delimiter';
-import { ColumnsType } from '../models/column';
+import { ColumnType } from '../models/column';
 import { Dispatch } from 'react';
 import { Actions } from '../models/actions';
 
@@ -17,7 +17,7 @@ const detectDelimiterFromValue = (value: string, defaultDelimiter: Delimiter) =>
   return currentDelimiter;
 };
 
-const parseData = <T>(value: string, columns: ColumnsType<T>, delimiter: Delimiter) => {
+const parseData = <T>(value: string, columns: ColumnType<T>[], delimiter: Delimiter) => {
   const lines = value.split('\n');
   return lines.map((line) => {
     const lineValues = line.split(delimiter);

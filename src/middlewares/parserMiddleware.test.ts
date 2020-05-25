@@ -1,11 +1,11 @@
 import { createParserMiddleware } from './parserMiddleware';
 import { State } from '../models/state';
-import { ColumnsType } from '../models/column';
+import { ColumnType } from '../models/column';
 import { Delimiter } from '../models/delimiter';
 
 describe('parserMiddleware', () => {
   type TestType = { forename: string; surname: string; email: string };
-  const columns: ColumnsType<TestType> = [
+  const columns: ColumnType<TestType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
     { key: 'email', label: 'Email' }

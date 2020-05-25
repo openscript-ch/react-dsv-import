@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 
 describe('context', () => {
-  type TestType = {};
+  type TestType = unknown;
   const defaultState: State<TestType> = { columns: [] };
 
   it('should reduce raw data action to state', () => {
