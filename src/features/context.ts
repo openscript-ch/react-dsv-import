@@ -1,6 +1,7 @@
 import { State, emptyState } from '../models/state';
 import { createContext, Dispatch, useContext } from 'react';
 import { Actions } from '../models/actions';
+import { GenericColumnType } from '../models/column';
 
 export const reducer = <T>(state: State<T>, action: Actions<T>) => {
   switch (action.type) {
@@ -34,4 +35,4 @@ export const getDSVImportContext = <T>() => {
   }
   return contextSingleton as React.Context<[State<T>, Dispatch<Actions<T>>]>;
 };
-export const useDSVImport = <T = { [key: string]: string }>() => useContext(getDSVImportContext<T>());
+export const useDSVImport = <T = GenericColumnType>() => useContext(getDSVImportContext<T>());
