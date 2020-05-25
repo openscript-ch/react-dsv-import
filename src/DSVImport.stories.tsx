@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DSVImport, ColumnsType } from './';
+import { DSVImport, ColumnType } from './';
 import { action } from '@storybook/addon-actions';
 import styled from '@emotion/styled';
 
@@ -8,7 +8,7 @@ export default { title: 'Usage|Examples' };
 type BasicType = { forename: string; surname: string; email: string };
 
 export const BasicUsage = () => {
-  const columns: ColumnsType<BasicType> = [
+  const columns: ColumnType<BasicType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
     { key: 'email', label: 'Email' }
@@ -25,7 +25,7 @@ export const BasicUsage = () => {
 BasicUsage.story = { name: 'Basic usage' };
 
 export const UsingOnChangeCallback = () => {
-  const columns: ColumnsType<BasicType> = [
+  const columns: ColumnType<BasicType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
     { key: 'email', label: 'Email' }
@@ -58,7 +58,7 @@ const CustomTablePreview = styled(DSVImport.TablePreview)`
 `;
 
 export const UsingOnValidationCallback = () => {
-  const columns: ColumnsType<BasicType> = [
+  const columns: ColumnType<BasicType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
     { key: 'email', label: 'Email', rules: [{ constraint: { unique: true }, message: 'Duplicates are not allowed' }] }

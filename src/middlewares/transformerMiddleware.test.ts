@@ -1,10 +1,10 @@
-import { ColumnsType } from '../models/column';
+import { ColumnType } from '../models/column';
 import { State } from '../models/state';
 import { createTransformerMiddleware } from './transformerMiddleware';
 
 describe('validatorMiddleware', () => {
   type TestType = { forename: string; surname: string; email: string };
-  const defaultColumns: ColumnsType<TestType> = [
+  const defaultColumns: ColumnType<TestType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
     { key: 'email', label: 'Email' }

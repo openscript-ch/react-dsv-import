@@ -1,10 +1,10 @@
-import { ColumnsType } from '../models/column';
+import { ColumnType } from '../models/column';
 import { State } from '../models/state';
 import { applyMiddlewares } from './middleware';
 
 describe('middleware', () => {
   type TestType = { forename: string; surname: string; email: string };
-  const columns: ColumnsType<TestType> = [
+  const columns: ColumnType<TestType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
     { key: 'email', label: 'Email' }

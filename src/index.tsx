@@ -10,6 +10,7 @@ export function DSVImport<T extends { [key: string]: string }>(props: PropsWithC
 DSVImport.TextareaInput = TextareaInput;
 DSVImport.TablePreview = TablePreview;
 
-export { ColumnsType } from './models/column';
+export { ColumnType } from './models/column';
 export { useDSVImport } from './features/context';
 export { Rule } from './models/rule';
+export { Transformer } from './models/transformer';

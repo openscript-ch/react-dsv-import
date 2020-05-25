@@ -1,10 +1,10 @@
 import { State } from '../models/state';
 import { Dispatch } from 'react';
 import { Actions } from '../models/actions';
-import { ColumnsType } from '../models/column';
+import { ColumnType } from '../models/column';
 import { Transformer } from '../models/transformer';
 
-const executeGlobalTransformers = <T>(values: T[], transformer: Transformer, columns: ColumnsType<T>) => {
+const executeGlobalTransformers = <T>(values: T[], transformer: Transformer, columns: ColumnType<T>[]) => {
   return values.map<T>((r) => {
     const transformed = { ...r };
     columns.forEach((c) => {
@@ -14,7 +14,7 @@ const executeGlobalTransformers = <T>(values: T[], transformer: Transformer, col
   });
 };
 
-const executeColumnTransformers = <T>(values: T[], columns: ColumnsType<T>) => {
+const executeColumnTransformers = <T>(values: T[], columns: ColumnType<T>[]) => {
   return values.map<T>((r) => {
     const transformed = { ...r };
     columns.forEach((c) => {

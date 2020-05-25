@@ -1,4 +1,4 @@
-import { ColumnsType } from './models/column';
+import { ColumnType } from './models/column';
 import { DSVImport } from '.';
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
@@ -8,7 +8,7 @@ import { ValidationError } from './models/validation';
 describe('DSVImport', () => {
   type TestType = { forename: string; surname: string; email: string };
 
-  const columns: ColumnsType<TestType> = [
+  const columns: ColumnType<TestType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
     { key: 'email', label: 'Email', rules: [{ constraint: { unique: true }, message: 'Contains duplicates' }] }
@@ -17,7 +17,7 @@ describe('DSVImport', () => {
   interface Props<T> {
     onChange?: (value: T[]) => void;
     onValidation?: (errors: ValidationError<T>[]) => void;
-    columns: ColumnsType<T>;
+    columns: ColumnType<T>[];
   }
 
   const MinimalTextareaInput: React.FC = () => {

@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import { ColumnsType } from '../../models/column';
+import { ColumnType } from '../../models/column';
 import { TablePreview } from './TablePreview';
 import { State } from '../../models/state';
 import { getDSVImportContext } from '../../features/context';
 
 describe('TablePreview', () => {
   type TestType = { forename: string; surname: string; email: string };
-  const columns: ColumnsType<TestType> = [
+  const columns: ColumnType<TestType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
     { key: 'email', label: 'Email' }

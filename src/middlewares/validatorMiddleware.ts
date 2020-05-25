@@ -34,7 +34,6 @@ const validateColumn = <T>(key: keyof T, data: T[keyof T][], rules?: Rule[]): Va
         });
       }
     });
-    return errors;
   }
 
   return errors;
