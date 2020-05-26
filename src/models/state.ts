@@ -1,4 +1,4 @@
-import { ColumnType } from './column';
+import { ColumnType, GenericColumnType } from './column';
 import { ValidationError } from './validation';
 import { Transformer } from './transformer';
 
@@ -10,6 +10,6 @@ export interface State<T> {
   columns: ColumnType<T>[];
 }
 
-export const emptyState: State<{ [key: string]: string }> = {
+export const emptyState: State<GenericColumnType> = {
   columns: []
 };
