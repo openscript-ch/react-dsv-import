@@ -76,7 +76,7 @@ Within this section additional types are explained.
 | Property        | Type                         | Description                                                 |
 |:----------------|:-----------------------------|:------------------------------------------------------------|
 | `message`       | `string`                     | Error message                                               |
-| `contraint`     | `{ unique: boolean } | { constraint: `[Constraint](#constraint)`}` | Constraint for this rule |
+| `contraint`     | `{ unique: boolean } \| { constraint: `[Constraint](#constraint)`}` | Constraint for this rule |
 
 #### Constraint
 `(value: string) => boolean`

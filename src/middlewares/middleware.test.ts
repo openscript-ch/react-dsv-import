@@ -52,4 +52,31 @@ describe('middleware', () => {
     expect(middlewareBMock).toHaveBeenNthCalledWith(2, defaultState, expect.any(Function), { type: 'initialCall' });
     expect(middlewareCMock).toBeCalledTimes(2);
   });
+
+  it('should not call a middleware twice', () => {
+    const dispatchMock = jest.fn();
+    const middlewareAMock = jest.fn((_state, dispatch) => {
+      dispatch({ type: 'sequentCall' });
+    });
+    const middlewareBMock = jest.fn((_state, dispatch) => {
+      dispatch({ type: 'sequentCall' });
+    });
+    const middlewareCMock = jest.fn((_state, dispatch) => {
+      dispatch({ type: 'sequentCall' });
+    });
+    const enhancedDispatch = applyMiddlewares(
+      defaultState,
+      dispatchMock,
+      middlewareAMock,
+      middlewareBMock,
+      middlewareCMock
+    );
+    enhancedDispatch({ type: 'initialCall' });
+
+    expect(middlewareAMock).toBeCalledTimes(5);
+    expect(middlewareBMock).toBeCalledTimes(5);
+    expect(middlewareBMock).toHaveBeenNthCalledWith(1, defaultState, expect.any(Function), { type: 'sequentCall' });
+    expect(middlewareBMock).toHaveBeenNthCalledWith(2, defaultState, expect.any(Function), { type: 'sequentCall' });
+    expect(middlewareCMock).toBeCalledTimes(5);
+  });
 });
