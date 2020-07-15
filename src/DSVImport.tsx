@@ -39,6 +39,10 @@ export interface Props<T> {
   transformers?: Transformer[];
 }
 
+/**
+ * Joho
+ * @param props Joho
+ */
 export const DSVImport = <T extends GenericColumnType>(props: PropsWithChildren<Props<T>>) => {
   const DSVImportContext = getDSVImportContext<T>();
   const initialValues: State<T> = { columns: props.columns, transformers: props.transformers };
