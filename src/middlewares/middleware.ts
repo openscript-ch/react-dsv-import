@@ -18,7 +18,7 @@ export const applyMiddlewares = <T, A>(state: State<T>, dispatch: Dispatch<A>, .
     nextMiddlewares.forEach((m, i) => {
       m(state, next(without(nextMiddlewares, i)), value);
     });
-  }
+  };
 
   call(middlewares, action);
 };

@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import styled from '@emotion/styled';
 
 export default {
-  title: 'Usage|Components/DSVImport',
+  title: 'Components/DSVImport',
   component: DSVImport,
   parameters: {
     componentSubtitle: 'Wrapping component'
@@ -28,7 +28,7 @@ export const BasicUsage = () => {
     </DSVImport>
   );
 };
-BasicUsage.story = { name: 'Basic usage' };
+BasicUsage.story = { name: 'Basic usage', parameters: { docs: { storyDescription: 'Hello' } } };
 
 export const UsingOnChangeCallback = () => {
   const columns: ColumnType<BasicType>[] = [
