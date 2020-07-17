@@ -32,14 +32,29 @@ const EventListener = <T extends GenericColumnType>(props: EventListenerProps<T>
   return null;
 };
 
-export interface Props<T> {
+export type Props<T> = {
+  /**
+   * Description of the expected columns
+   */
   columns: ColumnType<T>[];
+  /**
+   * Callback which is called after parsing the input
+   */
   onChange?: (value: T[]) => void;
+  /**
+   * Callback which is called if there are validation errors
+   */
   onValidation?: (errors: ValidationError<T>[]) => void;
+  /**
+   * Globally applied transformers
+   */
   transformers?: Transformer[];
-}
+};
 
-export const DSVImport = <T extends GenericColumnType>(props: PropsWithChildren<Props<T>>) => {
+/**
+ * Hello
+ */
+export function DSVImport<T extends GenericColumnType>(props: PropsWithChildren<Props<T>>) {
   const DSVImportContext = getDSVImportContext<T>();
   const initialValues: State<T> = { columns: props.columns, transformers: props.transformers };
   const [state, dispatch] = useReducer(createReducer<T>(), initialValues);
@@ -57,4 +72,4 @@ export const DSVImport = <T extends GenericColumnType>(props: PropsWithChildren<
       {props.children}
     </DSVImportContext.Provider>
   );
-};
+}

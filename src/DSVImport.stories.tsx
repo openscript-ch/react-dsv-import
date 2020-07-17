@@ -3,7 +3,13 @@ import { DSVImport, ColumnType } from './';
 import { action } from '@storybook/addon-actions';
 import styled from '@emotion/styled';
 
-export default { title: 'Usage|Examples' };
+export default {
+  title: 'Components/DSVImport',
+  component: DSVImport,
+  parameters: {
+    componentSubtitle: 'Wrapping component'
+  }
+};
 
 type BasicType = { forename: string; surname: string; email: string };
 
@@ -22,7 +28,7 @@ export const BasicUsage = () => {
     </DSVImport>
   );
 };
-BasicUsage.story = { name: 'Basic usage' };
+BasicUsage.story = { name: 'Basic usage', parameters: { docs: { storyDescription: 'Hello' } } };
 
 export const UsingOnChangeCallback = () => {
   const columns: ColumnType<BasicType>[] = [
