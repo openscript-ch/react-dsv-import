@@ -8,6 +8,8 @@ import { createValidatorMiddleware } from './middlewares/validatorMiddleware';
 import { ValidationError } from './models/validation';
 import { createTransformerMiddleware } from './middlewares/transformerMiddleware';
 import { Transformer } from './models/transformer';
+import { TextareaInput } from './components/inputs/TextareaInput';
+import { TablePreview } from './components/previews/TablePreview';
 
 interface EventListenerProps<T> {
   onChange?: (value: T[]) => void;
@@ -52,7 +54,7 @@ export type Props<T> = {
 };
 
 /**
- * Hello
+ * This is the main component, which creates a context for it's children. All children can access the information of the `DSVImport`.
  */
 export function DSVImport<T extends GenericColumnType>(props: PropsWithChildren<Props<T>>) {
   const DSVImportContext = getDSVImportContext<T>();
@@ -73,3 +75,6 @@ export function DSVImport<T extends GenericColumnType>(props: PropsWithChildren<
     </DSVImportContext.Provider>
   );
 }
+
+DSVImport.TextareaInput = TextareaInput;
+DSVImport.TablePreview = TablePreview;

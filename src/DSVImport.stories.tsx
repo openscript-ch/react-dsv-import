@@ -28,7 +28,7 @@ export const BasicUsage = () => {
     </DSVImport>
   );
 };
-BasicUsage.story = { name: 'Basic usage', parameters: { docs: { storyDescription: 'Hello' } } };
+BasicUsage.story = { name: 'Basic usage' };
 
 export const UsingOnChangeCallback = () => {
   const columns: ColumnType<BasicType>[] = [
