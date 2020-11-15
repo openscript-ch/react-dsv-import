@@ -13,8 +13,8 @@
   "types": "dist/index.d.ts",
   "devDependencies": {
     "@babel/core": "^7.12.3",
-    "@emotion/core": "^10.1.1",
-    "@emotion/styled": "^10.0.27",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
     "@rollup/plugin-typescript": "^6.1.0",
     "@storybook/addon-actions": "^6.0.28",
     "@storybook/addon-docs": "^6.0.28",
