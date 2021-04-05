@@ -1,0 +1,21 @@
+name: Continuous Integration
+
+on: pull_request
+
+jobs:
+  check:
+    name: Run integration checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Use nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run tests
+        run: yarn test
+      - name: Try to build storybook
+        run: yarn build:storybook
