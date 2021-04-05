@@ -8,5 +8,8 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
+  ],
+  "cSpell.words": [
+    "middlewares"
   ]
 }
