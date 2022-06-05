@@ -1,0 +1,7 @@
+* text=auto eol=lf
+
+*.png binary eol=unset
+*.jpg binary eol=unset
+*.jpeg binary eol=unset
+*.pdf binary eol=unset
+*.mp4 binary eol=unset

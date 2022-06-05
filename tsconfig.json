@@ -1,16 +1,21 @@
 {
+  "include": ["./src/**/*", "./*.ts", "./stories", "./vite.config.ts", "./postbuild.js", "./.eslintrc.js"],
   "compilerOptions": {
-    "target": "es5",
-    "module": "es6",
-    "lib": ["es6", "DOM"],
-    "allowJs": false,
-    "jsx": "react",
-    "sourceMap": true,
+    "outDir": "dist",
+    "target": "ES6",
+    "module": "CommonJS",
+    "lib": ["dom", "ES2017", "ES2019"],
+    // "allowJs": true,
+    // "checkJs": true,
+    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
-    "rootDir": "src",
+    "experimentalDecorators": true,
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "noEmit": false,
+    "skipLibCheck": true,
     "moduleResolution": "node",
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+    "resolveJsonModule": true
+  }
 }

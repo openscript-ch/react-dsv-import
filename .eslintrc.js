@@ -1,26 +1,31 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
+  env: {
+    browser: true,
+    es2021: true,
+  },
   extends: [
     'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
-    'plugin:prettier/recommended'
+    'airbnb',
+    'airbnb-typescript',
+    'plugin:react/jsx-runtime',
+    'plugin:prettier/recommended',
+    'plugin:storybook/recommended',
   ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
-    ecmaVersion: 2018,
-    sourceType: 'module'
+    ecmaVersion: 13,
+    sourceType: 'module',
+    project: './tsconfig.json',
   },
+  plugins: ['react', '@typescript-eslint'],
   rules: {
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    'react/prop-types': 'off'
+    'import/prefer-default-export': 'off',
+    'import/no-relative-packages': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'react/require-default-props': 'off',
+    'react/jsx-fragments': ['error', 'element'],
   },
-  settings: {
-    react: {
-      version: 'detect'
-    }
-  }
 };
