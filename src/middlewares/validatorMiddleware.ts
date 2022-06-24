@@ -1,5 +1,5 @@
-import { State } from '../models/state';
 import { Dispatch } from 'react';
+import { State } from '../models/state';
 import { Actions } from '../models/actions';
 import { Rule, UniqueConstraint, CallbackConstraint } from '../models/rule';
 import { ValidationError } from '../models/validation';
@@ -9,14 +9,14 @@ const onlyUniqueValues = (values: string[]) => {
 };
 
 const getDuplicates = (values: string[]) => {
-  return Array.from(new Set(values.filter((item, index) => values.indexOf(item) != index)));
+  return Array.from(new Set(values.filter((item, index) => values.indexOf(item) !== index)));
 };
 
 const validateColumn = <T>(key: keyof T, data: T[keyof T][], rules?: Rule[]): ValidationError<T>[] => {
   const errors: ValidationError<T>[] = [];
 
   if (rules) {
-    const values = data.map((d) => new String(d).toString());
+    const values = data.map((d) => `${d}`);
     rules.forEach((r) => {
       if ((r.constraint as UniqueConstraint).unique && !onlyUniqueValues(values)) {
         const duplicates = getDuplicates(values);
@@ -26,7 +26,7 @@ const validateColumn = <T>(key: keyof T, data: T[keyof T][], rules?: Rule[]): Va
           }
         });
       } else if (typeof (r.constraint as CallbackConstraint).callback === 'function') {
-        const callback = (r.constraint as CallbackConstraint).callback;
+        const { callback } = r.constraint as CallbackConstraint;
         values.forEach((v, i) => {
           if (callback(v)) {
             errors.push({ column: key, row: i, message: r.message });
@@ -48,10 +48,10 @@ export const createValidatorMiddleware = <T>() => {
             validateColumn(
               c.key,
               action.parsed.map((r) => r[c.key]),
-              c.rules
-            )
+              c.rules,
+            ),
           ),
-        []
+        [],
       );
       next({ type: 'setValidation', errors });
     }

@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-import React from 'react';
 import { ColumnType } from '../../models/column';
 import { TablePreview } from './TablePreview';
 import { State } from '../../models/state';
@@ -10,7 +9,7 @@ describe('TablePreview', () => {
   const columns: ColumnType<TestType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
-    { key: 'email', label: 'Email' }
+    { key: 'email', label: 'Email' },
   ];
   const defaultState: State<TestType> = { columns };
   const Context = getDSVImportContext<TestType>();
@@ -19,9 +18,10 @@ describe('TablePreview', () => {
 
   const renderComponent = (state = defaultState) => {
     return render(
+      // eslint-disable-next-line react/jsx-no-constructed-context-values
       <Context.Provider value={[state, dispatchMock]}>
         <TablePreview />
-      </Context.Provider>
+      </Context.Provider>,
     );
   };
 
@@ -41,8 +41,8 @@ describe('TablePreview', () => {
       ...defaultState,
       parsed: [
         { forename: 'Max', surname: 'Muster', email: 'example@example.com' },
-        { forename: '', surname: '', email: 'example@example.com' }
-      ]
+        { forename: '', surname: '', email: 'example@example.com' },
+      ],
     });
     const tableBody = container.querySelector('tbody');
 
@@ -57,22 +57,19 @@ describe('TablePreview', () => {
       ...defaultState,
       parsed: [
         { forename: 'Max', surname: 'Muster', email: 'example@example.com' },
-        { forename: '', surname: '', email: 'example@example.com' }
+        { forename: '', surname: '', email: 'example@example.com' },
       ],
       validation: [
         { column: 'email', row: 0, message: 'Contains duplicates' },
         { column: 'email', row: 1, message: 'Contains duplicates' },
         { column: 'email', row: 1, message: 'No example address, please' },
-        { column: 'forename', row: 1, message: 'Forename is required' }
-      ]
+        { column: 'forename', row: 1, message: 'Forename is required' },
+      ],
     });
     const tableBody = container.querySelector('tbody');
 
     expect(tableBody?.children[1].children[0]).toHaveClass('error');
     expect(tableBody?.children[1].children[0]).toHaveAttribute('title', 'Forename is required');
-    expect(tableBody?.children[1].children[2]).toHaveAttribute(
-      'title',
-      'Contains duplicates;No example address, please'
-    );
+    expect(tableBody?.children[1].children[2]).toHaveAttribute('title', 'Contains duplicates;No example address, please');
   });
 });

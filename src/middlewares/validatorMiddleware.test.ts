@@ -7,14 +7,14 @@ describe('validatorMiddleware', () => {
   const defaultColumns: ColumnType<TestType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
-    { key: 'email', label: 'Email' }
+    { key: 'email', label: 'Email' },
   ];
   const defaultState: State<TestType> = { columns: defaultColumns };
   const middleware = createValidatorMiddleware<TestType>();
   const parsed: TestType[] = [
     { forename: 'Hans', surname: 'Muster', email: 'h.muster@example.com' },
     { forename: 'Heidi', surname: 'Muster', email: 'h.muster@example.com' },
-    { forename: 'Joe', surname: 'Doe', email: 'j.doe@example.com' }
+    { forename: 'Joe', surname: 'Doe', email: 'j.doe@example.com' },
   ];
 
   it('should return an empty array if there are no errors', () => {
@@ -37,8 +37,8 @@ describe('validatorMiddleware', () => {
       type: 'setValidation',
       errors: [
         { column: 'email', row: 0, message: 'Contains duplicates' },
-        { column: 'email', row: 1, message: 'Contains duplicates' }
-      ]
+        { column: 'email', row: 1, message: 'Contains duplicates' },
+      ],
     });
   });
 
@@ -47,14 +47,14 @@ describe('validatorMiddleware', () => {
     const columns: ColumnType<TestType>[] = [...defaultColumns];
     columns[0] = {
       ...defaultColumns[0],
-      rules: [{ constraint: { callback: (value) => value === 'Hans' }, message: "No 'Hans' allowed" }]
+      rules: [{ constraint: { callback: (value) => value === 'Hans' }, message: "No 'Hans' allowed" }],
     };
     const state: State<TestType> = { columns };
     middleware(state, dispatchMock, { type: 'setParsed', parsed });
 
     expect(dispatchMock).toBeCalledWith({
       type: 'setValidation',
-      errors: [{ column: 'forename', row: 0, message: "No 'Hans' allowed" }]
+      errors: [{ column: 'forename', row: 0, message: "No 'Hans' allowed" }],
     });
   });
 });

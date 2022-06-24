@@ -1,46 +1,43 @@
-import React from 'react';
+import { PropsWithChildren } from 'react';
 import { useDSVImport } from '../../features/context';
+
+function Cell({ columnKey, rowIndex, children }: PropsWithChildren<{ columnKey: string; rowIndex: number }>) {
+  const [context] = useDSVImport();
+
+  const errors = context.validation?.filter((e) => e.column === columnKey && e.row === rowIndex);
+  const messages = errors?.map((e) => e.message).join(';');
+
+  return (
+    <td className={messages ? 'error' : ''} title={messages}>
+      {children}
+    </td>
+  );
+}
 
 export interface TablePreviewProps {
   className?: string;
 }
 
-export const TablePreview: React.FC<TablePreviewProps> = (props) => {
+export function TablePreview({ className }: TablePreviewProps) {
   const [context] = useDSVImport();
 
-  const getCellValidationError = (columnKey: string, rowIndex: number) => {
-    if (context.validation) {
-      return context.validation.filter((e) => e.column === columnKey && e.row === rowIndex);
-    }
-  };
-
-  const Cell: React.FC<{ columnKey: string; rowIndex: number }> = (props) => {
-    const errors = getCellValidationError(props.columnKey, props.rowIndex);
-    const messages = errors?.map((e) => e.message).join(';');
-
-    return (
-      <td className={messages ? 'error' : ''} title={messages}>
-        {props.children}
-      </td>
-    );
-  };
-
   return (
-    <table className={props.className}>
+    <table className={className}>
       <thead>
         <tr>
-          {context.columns.map((column, columnIndex) => (
-            <th key={columnIndex}>{column.label}</th>
+          {context.columns.map((column) => (
+            <th key={column.key}>{column.label}</th>
           ))}
         </tr>
       </thead>
       <tbody>
         {context.parsed
           ? context.parsed.map((row, rowIndex) => (
+              // eslint-disable-next-line react/no-array-index-key
               <tr key={rowIndex}>
-                {context.columns.map((column, columnIndex) => {
+                {context.columns.map((column) => {
                   return (
-                    <Cell key={columnIndex} columnKey={column.key.toString()} rowIndex={rowIndex}>
+                    <Cell key={column.key} columnKey={column.key.toString()} rowIndex={rowIndex}>
                       {row[column.key]}
                     </Cell>
                   );
@@ -51,4 +48,4 @@ export const TablePreview: React.FC<TablePreviewProps> = (props) => {
       </tbody>
     </table>
   );
-};
+}

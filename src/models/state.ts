@@ -11,5 +11,5 @@ export interface State<T> {
 }
 
 export const emptyState: State<GenericColumnType> = {
-  columns: []
+  columns: [],
 };

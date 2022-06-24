@@ -1,6 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
 import { TextareaInput } from './TextareaInput';
-import React from 'react';
 import { ColumnType } from '../../models/column';
 import { getDSVImportContext } from '../../features/context';
 import { State } from '../../models/state';
@@ -15,9 +14,10 @@ describe('TextareaInput', () => {
 
   const renderComponent = () => {
     return render(
+      // eslint-disable-next-line react/jsx-no-constructed-context-values
       <Context.Provider value={[state, dispatchMock]}>
         <TextareaInput />
-      </Context.Provider>
+      </Context.Provider>,
     );
   };
 

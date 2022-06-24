@@ -8,7 +8,7 @@ describe('parserMiddleware', () => {
   const columns: ColumnType<TestType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
-    { key: 'email', label: 'Email' }
+    { key: 'email', label: 'Email' },
   ];
   const defaultState: State<TestType> = { columns };
   const middleware = createParserMiddleware<TestType>();
@@ -22,7 +22,7 @@ describe('parserMiddleware', () => {
     expect(dispatchMock).toBeCalledTimes(1);
     expect(dispatchMock).toBeCalledWith({
       type: 'setParsed',
-      parsed: [{ forename: 'Max', surname: undefined, email: undefined }]
+      parsed: [{ forename: 'Max', surname: undefined, email: undefined }],
     });
   });
 
@@ -38,14 +38,14 @@ describe('parserMiddleware', () => {
     const stateWithRawData = {
       ...defaultState,
       raw: 'Max',
-      parsed: [{ forename: 'Max', surname: '', email: '' }]
+      parsed: [{ forename: 'Max', surname: '', email: '' }],
     };
     middleware(stateWithRawData, dispatchMock, { type: 'setRaw', raw: '' });
 
     expect(dispatchMock).toBeCalledTimes(1);
     expect(dispatchMock).toBeCalledWith({
       type: 'setParsed',
-      parsed: []
+      parsed: [],
     });
   });
 
@@ -59,8 +59,8 @@ describe('parserMiddleware', () => {
         type: 'setParsed',
         parsed: [
           { forename: 'Max', surname: 'Muster', email: 'max@example.com' },
-          { forename: '', surname: '', email: 'unknown@example.com' }
-        ]
+          { forename: '', surname: '', email: 'unknown@example.com' },
+        ],
       });
     });
   });

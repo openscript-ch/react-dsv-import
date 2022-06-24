@@ -7,7 +7,7 @@ describe('middleware', () => {
   const columns: ColumnType<TestType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
-    { key: 'email', label: 'Email' }
+    { key: 'email', label: 'Email' },
   ];
   const defaultState: State<TestType> = { columns };
 
@@ -16,13 +16,7 @@ describe('middleware', () => {
     const middlewareAMock = jest.fn();
     const middlewareBMock = jest.fn();
     const middlewareCMock = jest.fn();
-    const enhancedDispatch = applyMiddlewares(
-      defaultState,
-      dispatchMock,
-      middlewareAMock,
-      middlewareBMock,
-      middlewareCMock
-    );
+    const enhancedDispatch = applyMiddlewares(defaultState, dispatchMock, middlewareAMock, middlewareBMock, middlewareCMock);
     enhancedDispatch({});
 
     expect(middlewareAMock).toBeCalledTimes(1);
@@ -37,13 +31,7 @@ describe('middleware', () => {
     });
     const middlewareBMock = jest.fn();
     const middlewareCMock = jest.fn();
-    const enhancedDispatch = applyMiddlewares(
-      defaultState,
-      dispatchMock,
-      middlewareAMock,
-      middlewareBMock,
-      middlewareCMock
-    );
+    const enhancedDispatch = applyMiddlewares(defaultState, dispatchMock, middlewareAMock, middlewareBMock, middlewareCMock);
     enhancedDispatch({ type: 'initialCall' });
 
     expect(middlewareAMock).toBeCalledTimes(1);
@@ -64,13 +52,7 @@ describe('middleware', () => {
     const middlewareCMock = jest.fn((_state, dispatch) => {
       dispatch({ type: 'sequentCall' });
     });
-    const enhancedDispatch = applyMiddlewares(
-      defaultState,
-      dispatchMock,
-      middlewareAMock,
-      middlewareBMock,
-      middlewareCMock
-    );
+    const enhancedDispatch = applyMiddlewares(defaultState, dispatchMock, middlewareAMock, middlewareBMock, middlewareCMock);
     enhancedDispatch({ type: 'initialCall' });
 
     expect(middlewareAMock).toBeCalledTimes(5);
