@@ -1,7 +1,7 @@
-import { ColumnType } from './models/column';
-import { DSVImport } from '.';
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
+import { ColumnType } from './models/column';
+import { DSVImport } from '.';
 import { useDSVImport } from './features/context';
 import { ValidationError } from './models/validation';
 
@@ -11,7 +11,7 @@ describe('DSVImport', () => {
   const columns: ColumnType<TestType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
-    { key: 'email', label: 'Email', rules: [{ constraint: { unique: true }, message: 'Contains duplicates' }] }
+    { key: 'email', label: 'Email', rules: [{ constraint: { unique: true }, message: 'Contains duplicates' }] },
   ];
 
   interface Props<T> {
@@ -20,21 +20,22 @@ describe('DSVImport', () => {
     columns: ColumnType<T>[];
   }
 
-  const MinimalTextareaInput: React.FC = () => {
+  function MinimalTextareaInput() {
     const [, dispatch] = useDSVImport();
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       dispatch({ type: 'setRaw', raw: event.target.value });
     };
 
-    return <textarea onChange={handleChange}></textarea>;
-  };
+    return <textarea onChange={handleChange} />;
+  }
 
   const renderComponent = (props: Props<TestType>) => {
     return render(
+      // eslint-disable-next-line react/jsx-props-no-spreading
       <DSVImport<TestType> {...props}>
         <MinimalTextareaInput />
-      </DSVImport>
+      </DSVImport>,
     );
   };
 
@@ -57,13 +58,13 @@ describe('DSVImport', () => {
 
     if (textarea) {
       fireEvent.change(textarea, {
-        target: { value: 'Max,Muster,m.muster@example.com\nMoritz,Muster,m.muster@example.com' }
+        target: { value: 'Max,Muster,m.muster@example.com\nMoritz,Muster,m.muster@example.com' },
       });
     }
 
     expect(onValidationMock).toBeCalledWith([
       { column: 'email', row: 0, message: 'Contains duplicates' },
-      { column: 'email', row: 1, message: 'Contains duplicates' }
+      { column: 'email', row: 1, message: 'Contains duplicates' },
     ]);
   });
 });

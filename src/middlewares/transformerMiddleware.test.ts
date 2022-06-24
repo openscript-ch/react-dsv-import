@@ -7,13 +7,13 @@ describe('validatorMiddleware', () => {
   const defaultColumns: ColumnType<TestType>[] = [
     { key: 'forename', label: 'Forename' },
     { key: 'surname', label: 'Surname' },
-    { key: 'email', label: 'Email' }
+    { key: 'email', label: 'Email' },
   ];
   const middleware = createTransformerMiddleware<TestType>();
   const parsed: TestType[] = [
     { forename: 'Hans', surname: 'Muster', email: 'h.muster@example.com' },
     { forename: 'Heidi', surname: ' Muster', email: 'h.muster@example.com' },
-    { forename: 'Joe', surname: 'Doe', email: ' j.doe@example.com ' }
+    { forename: 'Joe', surname: 'Doe', email: ' j.doe@example.com ' },
   ];
   const trimTransformer = (value: string) => value.trim();
   const markTransformer = (value: string) => `${value}!`;
@@ -37,8 +37,8 @@ describe('validatorMiddleware', () => {
       parsed: [
         { forename: 'Hans', surname: 'Muster', email: 'h.muster@example.com' },
         { forename: 'Heidi', surname: 'Muster', email: 'h.muster@example.com' },
-        { forename: 'Joe', surname: 'Doe', email: 'j.doe@example.com' }
-      ]
+        { forename: 'Joe', surname: 'Doe', email: 'j.doe@example.com' },
+      ],
     });
   });
 
@@ -47,8 +47,8 @@ describe('validatorMiddleware', () => {
       columns: [
         { key: 'forename', label: 'Forename' },
         { key: 'surname', label: 'Surname', transformers: [trimTransformer, markTransformer] },
-        { key: 'email', label: 'Email' }
-      ]
+        { key: 'email', label: 'Email' },
+      ],
     };
     const dispatchMock = jest.fn();
 
@@ -59,8 +59,8 @@ describe('validatorMiddleware', () => {
       parsed: [
         { forename: 'Hans', surname: 'Muster!', email: 'h.muster@example.com' },
         { forename: 'Heidi', surname: 'Muster!', email: 'h.muster@example.com' },
-        { forename: 'Joe', surname: 'Doe!', email: ' j.doe@example.com ' }
-      ]
+        { forename: 'Joe', surname: 'Doe!', email: ' j.doe@example.com ' },
+      ],
     });
   });
 });

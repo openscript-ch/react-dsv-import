@@ -1,7 +1,7 @@
+import { Dispatch } from 'react';
 import { State } from '../models/state';
 import { Delimiter } from '../models/delimiter';
 import { ColumnType } from '../models/column';
-import { Dispatch } from 'react';
 import { Actions } from '../models/actions';
 
 const detectDelimiterFromValue = (value: string, defaultDelimiter: Delimiter) => {
@@ -23,7 +23,7 @@ const parseData = <T>(value: string, columns: ColumnType<T>[], delimiter: Delimi
     const lineValues = line.split(delimiter);
     const parsedLine = {} as T;
     columns.forEach((column, columnIndex) => {
-      parsedLine[column.key] = (lineValues[columnIndex] as unknown) as T[keyof T];
+      parsedLine[column.key] = lineValues[columnIndex] as unknown as T[keyof T];
     });
     return parsedLine;
   });

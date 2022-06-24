@@ -1,7 +1,7 @@
-import { reducer, getDSVImportContext } from './context';
-import { State } from '../models/state';
 import { useContext } from 'react';
 import { renderHook } from '@testing-library/react-hooks';
+import { reducer, getDSVImportContext } from './context';
+import { State } from '../models/state';
 
 describe('context', () => {
   type TestType = unknown;

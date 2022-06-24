@@ -1,5 +1,5 @@
 export enum Delimiter {
   COMMA = ',',
   SEMICOLON = ';',
-  TAB = '\t'
+  TAB = '\t',
 }

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useReducer, useEffect } from 'react';
+import { PropsWithChildren, useReducer, useEffect, useMemo, Dispatch } from 'react';
 import { ColumnType, GenericColumnType } from './models/column';
 import { getDSVImportContext, useDSVImport, createReducer } from './features/context';
 import { createParserMiddleware } from './middlewares/parserMiddleware';
@@ -10,29 +10,30 @@ import { createTransformerMiddleware } from './middlewares/transformerMiddleware
 import { Transformer } from './models/transformer';
 import { TextareaInput } from './components/inputs/TextareaInput';
 import { TablePreview } from './components/previews/TablePreview';
+import { Actions } from './models/actions';
 
 interface EventListenerProps<T> {
   onChange?: (value: T[]) => void;
   onValidation?: (errors: ValidationError<T>[]) => void;
 }
 
-const EventListener = <T extends GenericColumnType>(props: EventListenerProps<T>) => {
+function EventListener<T extends GenericColumnType>({ onChange, onValidation }: EventListenerProps<T>) {
   const [context] = useDSVImport<T>();
 
   useEffect(() => {
-    if (context.parsed && props.onChange) {
-      props.onChange(context.parsed);
+    if (context.parsed && onChange) {
+      onChange(context.parsed);
     }
   }, [context.parsed]);
 
   useEffect(() => {
-    if (context.validation && props.onValidation) {
-      props.onValidation(context.validation);
+    if (context.validation && onValidation) {
+      onValidation(context.validation);
     }
   }, [context.validation]);
 
   return null;
-};
+}
 
 export type Props<T> = {
   /**
@@ -56,22 +57,30 @@ export type Props<T> = {
 /**
  * This is the main component, which creates a context for it's children. All children can access the information of the `DSVImport`.
  */
-export function DSVImport<T extends GenericColumnType>(props: PropsWithChildren<Props<T>>) {
+export function DSVImport<T extends GenericColumnType>({
+  columns,
+  onChange,
+  onValidation,
+  transformers,
+  children,
+}: PropsWithChildren<Props<T>>) {
   const DSVImportContext = getDSVImportContext<T>();
-  const initialValues: State<T> = { columns: props.columns, transformers: props.transformers };
+  const initialValues: State<T> = { columns, transformers };
   const [state, dispatch] = useReducer(createReducer<T>(), initialValues);
   const enhancedDispatch = applyMiddlewares(
     state,
     dispatch,
     createParserMiddleware(),
     createTransformerMiddleware(),
-    createValidatorMiddleware()
+    createValidatorMiddleware(),
   );
 
+  const value = useMemo<[State<T>, Dispatch<Actions<T>>]>(() => [state, enhancedDispatch], [state]);
+
   return (
-    <DSVImportContext.Provider value={[state, enhancedDispatch]}>
-      <EventListener<T> onChange={props.onChange} onValidation={props.onValidation} />
-      {props.children}
+    <DSVImportContext.Provider value={value}>
+      <EventListener<T> onChange={onChange} onValidation={onValidation} />
+      {children}
     </DSVImportContext.Provider>
   );
 }

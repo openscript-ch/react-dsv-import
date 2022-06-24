@@ -1,5 +1,5 @@
-import { State, emptyState } from '../models/state';
 import { createContext, Dispatch, useContext } from 'react';
+import { State, emptyState } from '../models/state';
 import { Actions } from '../models/actions';
 import { GenericColumnType } from '../models/column';
 
@@ -27,10 +27,10 @@ let contextSingleton: React.Context<[State<any>, Dispatch<Actions<any>>]>;
 export const getDSVImportContext = <T>() => {
   if (!contextSingleton) {
     contextSingleton = createContext<[State<T>, Dispatch<Actions<T>>]>([
-      (emptyState as unknown) as State<T>,
+      emptyState as unknown as State<T>,
       () => {
         throw new Error('Not initialized');
-      }
+      },
     ]);
   }
   return contextSingleton as React.Context<[State<T>, Dispatch<Actions<T>>]>;
