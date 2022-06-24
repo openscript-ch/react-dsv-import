@@ -1,12 +1,11 @@
 name: Continuous deployment (NPM)
 
 on:
-  push:
-    tags:
-      - v*
+  release:
+    types: [published]
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-npm-package:
     name: Build and deploy NPM package
     runs-on: ubuntu-latest
     steps:
@@ -26,11 +25,6 @@ jobs:
 
       - name: Build
         run: npm run build
-
-      - name: Create Github release
-        run: npm run release:create-github-release
-        env:
-          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Publish package on npmjs.org
         run: npm publish ./dist --access public
