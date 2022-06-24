@@ -1,5 +1,5 @@
 {
-  "version": "0.3.11",
+  "version": "0.4.0",
   "name": "react-dsv-import",
   "description": "Flexible, typed and easy to use React Component ⚛ to provide CSV, TSV and other delimiter-separated values formats (DSV) import functionality.",
   "keywords": [
