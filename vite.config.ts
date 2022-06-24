@@ -11,6 +11,8 @@ const makeExternalPredicate = (externals: string[]) => {
   return (id: string) => pattern.test(id);
 };
 
+const parsedPackageJson = { dependencies: {}, ...packageJson };
+
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
@@ -20,7 +22,7 @@ export default defineConfig({
       fileName: (format) => `react-dsv-import.${format}.js`,
     },
     rollupOptions: {
-      external: makeExternalPredicate([...Object.keys(packageJson.dependencies), ...Object.keys(packageJson.peerDependencies)]),
+      external: makeExternalPredicate([...Object.keys(parsedPackageJson.dependencies), ...Object.keys(packageJson.peerDependencies)]),
       output: {
         globals: {
           react: 'React',
