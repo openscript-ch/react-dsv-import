@@ -4,7 +4,7 @@
   "name": "React DSV Import",
   "build": {
     "dockerfile": "Dockerfile",
-    "args": { "VARIANT": "16" }
+    "args": { "VARIANT": "18" }
   },
 
   // Add the IDs of extensions you want installed when the container is created.
