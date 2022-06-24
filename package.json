@@ -9,10 +9,10 @@
   "homepage": "https://openscript.github.io/react-dsv-import/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/openscript/react-dsv-import"
+    "url": "https://github.com/openscript-ch-ch/react-dsv-import"
   },
   "bugs": {
-    "url": "https://github.com/openscript/react-dsv-import/issues"
+    "url": "https://github.com/openscript-ch-ch/react-dsv-import/issues"
   },
   "author": "openscript GmbH <hi+npm@openscript.ch>",
   "license": "MIT",
