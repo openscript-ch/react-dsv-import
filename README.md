@@ -2,7 +2,7 @@
 
 Flexible, typed and easy to use React Component ⚛ to provide CSV, TSV and other delimiter-separated values formats ([DSV](https://en.wikipedia.org/wiki/Delimiter-separated_values)) import functionality.
 
-[![Travis (.com)](https://img.shields.io/travis/com/openscript/react-dsv-import)](https://travis-ci.com/github/openscript/react-dsv-import)
+[![Travis (.com)](https://img.shields.io/travis/com/openscript/react-dsv-import)](https://travis-ci.com/github/openscript-ch/react-dsv-import)
 [![npm](https://img.shields.io/npm/v/react-dsv-import)](https://www.npmjs.com/package/react-dsv-import)
 [![npm peer dependency version](https://img.shields.io/npm/dependency-version/react-dsv-import/peer/react)](https://www.npmjs.com/package/react)
 [![GitHub](https://img.shields.io/github/license/openscript/react-dsv-import)](https://github.com/openscript-ch/react-dsv-import)
