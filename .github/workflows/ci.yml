@@ -2,8 +2,11 @@ name: Continuous integration
 
 on:
   push:
+    branches:
+      - master
   pull_request:
-    types: [opened, reopened]
+    branches:
+      - master
 
 jobs:
   build:
