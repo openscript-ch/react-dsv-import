@@ -79,7 +79,7 @@
     "vite": "2.9.14",
     "vite-plugin-dts": "1.2.1",
     "vite-plugin-markdown": "2.0.2",
-    "vitest": "0.17.1"
+    "vitest": "0.18.0"
   },
   "scripts": {
     "build": "vite build",
