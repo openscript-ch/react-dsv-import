@@ -69,7 +69,7 @@
     "eslint-plugin-storybook": "0.6.1",
     "jest": "28.1.2",
     "jest-environment-jsdom": "28.1.2",
-    "npm-check": "5.9.2",
+    "npm-check": "6.0.1",
     "prettier": "2.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
