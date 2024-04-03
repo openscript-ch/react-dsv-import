@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/openscript-ch/react-dsv-import/compare/v0.4.0...v0.4.1) (2024-04-03)
+
+
+### Bug Fixes
+
+* test release management ([0767635](https://github.com/openscript-ch/react-dsv-import/commit/07676350c1936b5619c0fa853268641928d27af1))
+
 ## [0.4.0](https://github.com/openscript-ch/react-dsv-import/compare/v0.3.11...v0.4.0) (2022-06-24)
 
 
