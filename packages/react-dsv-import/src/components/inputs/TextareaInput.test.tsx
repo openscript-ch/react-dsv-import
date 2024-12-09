@@ -17,7 +17,7 @@ describe('TextareaInput', () => {
       // eslint-disable-next-line react/jsx-no-constructed-context-values
       <Context.Provider value={[state, dispatchMock]}>
         <TextareaInput />
-      </Context.Provider>,
+      </Context.Provider>
     );
   };
 

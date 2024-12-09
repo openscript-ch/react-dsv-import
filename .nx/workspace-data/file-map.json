@@ -1,0 +1,263 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.2.1",
+  "pathMappings": {
+    "pkgbuild-editor": [
+      "packages/pkgbuild-editor/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": true
+    }
+  },
+  "fileMap": {
+    "projectFileMap": {
+      "react-dsv-import": [
+        {
+          "file": "packages/react-dsv-import/package.json",
+          "hash": "5702351070264137313"
+        },
+        {
+          "file": "packages/react-dsv-import/project.json",
+          "hash": "1084440398911772649"
+        },
+        {
+          "file": "packages/react-dsv-import/src/DSVImport.test.tsx",
+          "hash": "12657510091531953768"
+        },
+        {
+          "file": "packages/react-dsv-import/src/DSVImport.tsx",
+          "hash": "2146067442135316364"
+        },
+        {
+          "file": "packages/react-dsv-import/src/components/inputs/TextareaInput.test.tsx",
+          "hash": "6392428065263841047"
+        },
+        {
+          "file": "packages/react-dsv-import/src/components/inputs/TextareaInput.tsx",
+          "hash": "2772621812082620175"
+        },
+        {
+          "file": "packages/react-dsv-import/src/components/previews/TablePreview.test.tsx",
+          "hash": "9297191618692336766"
+        },
+        {
+          "file": "packages/react-dsv-import/src/components/previews/TablePreview.tsx",
+          "hash": "472083817713313568"
+        },
+        {
+          "file": "packages/react-dsv-import/src/emotion-env.d.ts",
+          "hash": "16657751497723177055"
+        },
+        {
+          "file": "packages/react-dsv-import/src/features/context.test.ts",
+          "hash": "6300964845060957855"
+        },
+        {
+          "file": "packages/react-dsv-import/src/features/context.ts",
+          "hash": "7144027604747468043"
+        },
+        {
+          "file": "packages/react-dsv-import/src/index.tsx",
+          "hash": "18386491631386077727"
+        },
+        {
+          "file": "packages/react-dsv-import/src/middlewares/middleware.test.ts",
+          "hash": "5188306034655984062"
+        },
+        {
+          "file": "packages/react-dsv-import/src/middlewares/middleware.ts",
+          "hash": "17659647482578758003"
+        },
+        {
+          "file": "packages/react-dsv-import/src/middlewares/parserMiddleware.test.ts",
+          "hash": "5001714652171222450"
+        },
+        {
+          "file": "packages/react-dsv-import/src/middlewares/parserMiddleware.ts",
+          "hash": "16358638096083822261"
+        },
+        {
+          "file": "packages/react-dsv-import/src/middlewares/transformerMiddleware.test.ts",
+          "hash": "6825181535898434744"
+        },
+        {
+          "file": "packages/react-dsv-import/src/middlewares/transformerMiddleware.ts",
+          "hash": "3805291686824891716"
+        },
+        {
+          "file": "packages/react-dsv-import/src/middlewares/validatorMiddleware.test.ts",
+          "hash": "5559869536094607763"
+        },
+        {
+          "file": "packages/react-dsv-import/src/middlewares/validatorMiddleware.ts",
+          "hash": "2823610967807433810"
+        },
+        {
+          "file": "packages/react-dsv-import/src/models/actions.ts",
+          "hash": "3173993154821995459"
+        },
+        {
+          "file": "packages/react-dsv-import/src/models/column.ts",
+          "hash": "18209612092735584707"
+        },
+        {
+          "file": "packages/react-dsv-import/src/models/delimiter.ts",
+          "hash": "12303291217689075885"
+        },
+        {
+          "file": "packages/react-dsv-import/src/models/middleware.ts",
+          "hash": "18352069652768624181"
+        },
+        {
+          "file": "packages/react-dsv-import/src/models/rule.ts",
+          "hash": "4299892620198475080"
+        },
+        {
+          "file": "packages/react-dsv-import/src/models/state.ts",
+          "hash": "4392544927828073745"
+        },
+        {
+          "file": "packages/react-dsv-import/src/models/transformer.ts",
+          "hash": "3681324173729235926"
+        },
+        {
+          "file": "packages/react-dsv-import/src/models/validation.ts",
+          "hash": "13252336435498313777"
+        },
+        {
+          "file": "packages/react-dsv-import/src/vite-env.d.ts",
+          "hash": "12946363841406869089"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".devcontainer.json",
+        "hash": "17884795430977258884"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "7659625666741786362"
+      },
+      {
+        "file": ".gitattributes",
+        "hash": "3625258195118147465"
+      },
+      {
+        "file": ".github/workflows/cd-storybook.yml",
+        "hash": "11784493519117556427"
+      },
+      {
+        "file": ".github/workflows/check-size.yml",
+        "hash": "7763584835587580567"
+      },
+      {
+        "file": ".github/workflows/ci.yml",
+        "hash": "10961170969017167096"
+      },
+      {
+        "file": ".github/workflows/release-management.yml",
+        "hash": "17722619004913598864"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "8029680881334953217"
+      },
+      {
+        "file": ".npmrc",
+        "hash": "12380778133331113118"
+      },
+      {
+        "file": ".storybook/main.js",
+        "hash": "8486016646087217668"
+      },
+      {
+        "file": ".storybook/manager.js",
+        "hash": "3647139556046095232"
+      },
+      {
+        "file": ".storybook/preview.js",
+        "hash": "10277312891372780160"
+      },
+      {
+        "file": ".storybook/theme.js",
+        "hash": "10896226928774310260"
+      },
+      {
+        "file": "LICENSE",
+        "hash": "12713302912116461801"
+      },
+      {
+        "file": "README.md",
+        "hash": "16520305722262741252"
+      },
+      {
+        "file": "docs/demo.apng",
+        "hash": "14932288198140096492"
+      },
+      {
+        "file": "eslint.config.js",
+        "hash": "14705395904357501425"
+      },
+      {
+        "file": "jest.config.js",
+        "hash": "11140006449857754970"
+      },
+      {
+        "file": "jest.setup.ts",
+        "hash": "4941352530169676329"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15782108458829149953"
+      },
+      {
+        "file": "package.json",
+        "hash": "9062248504083450987"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "3631805511870108677"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "414265049992887245"
+      },
+      {
+        "file": "prettier.config.js",
+        "hash": "12558043325365250126"
+      },
+      {
+        "file": "renovate.json",
+        "hash": "17907478565710303631"
+      },
+      {
+        "file": "stories/DSVImport.stories.tsx",
+        "hash": "13285307328145494772"
+      },
+      {
+        "file": "stories/Start.stories.mdx",
+        "hash": "8933680288760138877"
+      },
+      {
+        "file": "stories/antd-integration.stories.mdx",
+        "hash": "18053824732515894144"
+      },
+      {
+        "file": "stories/material-integration.stories.mdx",
+        "hash": "3885288189859561578"
+      },
+      {
+        "file": "stories/models.stories.mdx",
+        "hash": "4073597989437028552"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "4692009263641719370"
+      }
+    ]
+  }
+}

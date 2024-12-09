@@ -21,7 +21,7 @@ describe('TablePreview', () => {
       // eslint-disable-next-line react/jsx-no-constructed-context-values
       <Context.Provider value={[state, dispatchMock]}>
         <TablePreview />
-      </Context.Provider>,
+      </Context.Provider>
     );
   };
 
@@ -70,6 +70,9 @@ describe('TablePreview', () => {
 
     expect(tableBody?.children[1].children[0]).toHaveClass('error');
     expect(tableBody?.children[1].children[0]).toHaveAttribute('title', 'Forename is required');
-    expect(tableBody?.children[1].children[2]).toHaveAttribute('title', 'Contains duplicates;No example address, please');
+    expect(tableBody?.children[1].children[2]).toHaveAttribute(
+      'title',
+      'Contains duplicates;No example address, please'
+    );
   });
 });

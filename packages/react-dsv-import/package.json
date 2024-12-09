@@ -1,0 +1,32 @@
+{
+  "version": "0.4.0",
+  "name": "react-dsv-import",
+  "description": "Flexible, typed and easy to use React Component ⚛ to provide CSV, TSV and other delimiter-separated values formats (DSV) import functionality.",
+  "keywords": [
+    "react-component",
+    "typescript",
+    "react"
+  ],
+  "homepage": "https://openscript-ch.github.io/react-dsv-import/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openscript-ch/react-dsv-import"
+  },
+  "bugs": {
+    "url": "https://github.com/openscript-ch/react-dsv-import/issues"
+  },
+  "author": "openscript GmbH",
+  "license": "MIT",
+  "main": "./index.js",
+  "typings": "./index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "directory": "../../dist/packages/react-dsv-import"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {},
+  "scripts": {}
+}

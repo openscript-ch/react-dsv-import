@@ -1,0 +1,42 @@
+
+Linting "react-dsv-import"...
+[0m[0m
+[0m[4m/workspaces/react-dsv-import/packages/react-dsv-import/src/DSVImport.test.tsx[24m[0m
+[0m  [2m35:7[22m   [31merror[39m  Definition for rule 'react/jsx-props-no-spreading' was not found  [2mreact/jsx-props-no-spreading[22m[0m
+[0m  [2m38:19[22m  [31merror[39m  Delete `,`                                                        [2mprettier/prettier[22m[0m
+[0m[0m
+[0m[4m/workspaces/react-dsv-import/packages/react-dsv-import/src/DSVImport.tsx[24m[0m
+[0m  [2m75:32[22m  [31merror[39m  Delete `,`  [2mprettier/prettier[22m[0m
+[0m[0m
+[0m[4m/workspaces/react-dsv-import/packages/react-dsv-import/src/components/inputs/TextareaInput.test.tsx[24m[0m
+[0m  [2m17:7[22m   [31merror[39m  Definition for rule 'react/jsx-no-constructed-context-values' was not found  [2mreact/jsx-no-constructed-context-values[22m[0m
+[0m  [2m20:26[22m  [31merror[39m  Delete `,`                                                                   [2mprettier/prettier[22m[0m
+[0m[0m
+[0m[4m/workspaces/react-dsv-import/packages/react-dsv-import/src/components/previews/TablePreview.test.tsx[24m[0m
+[0m  [2m21:7[22m   [31merror[39m  Definition for rule 'react/jsx-no-constructed-context-values' was not found                                                                             [2mreact/jsx-no-constructed-context-values[22m[0m
+[0m  [2m24:26[22m  [31merror[39m  Delete `,`                                                                                                                                              [2mprettier/prettier[22m[0m
+[0m  [2m73:64[22m  [31merror[39m  Replace `'title',·'Contains·duplicates;No·example·address,·please'` with `⏎······'title',⏎······'Contains·duplicates;No·example·address,·please'⏎····`  [2mprettier/prettier[22m[0m
+[0m[0m
+[0m[4m/workspaces/react-dsv-import/packages/react-dsv-import/src/components/previews/TablePreview.tsx[24m[0m
+[0m  [2m36:15[22m  [31merror[39m  Definition for rule 'react/no-array-index-key' was not found  [2mreact/no-array-index-key[22m[0m
+[0m[0m
+[0m[4m/workspaces/react-dsv-import/packages/react-dsv-import/src/middlewares/middleware.test.ts[24m[0m
+[0m  [2m19:47[22m  [31merror[39m  Replace `defaultState,·dispatchMock,·middlewareAMock,·middlewareBMock,·middlewareCMock` with `⏎······defaultState,⏎······dispatchMock,⏎······middlewareAMock,⏎······middlewareBMock,⏎······middlewareCMock⏎····`  [2mprettier/prettier[22m[0m
+[0m  [2m34:47[22m  [31merror[39m  Replace `defaultState,·dispatchMock,·middlewareAMock,·middlewareBMock,·middlewareCMock` with `⏎······defaultState,⏎······dispatchMock,⏎······middlewareAMock,⏎······middlewareBMock,⏎······middlewareCMock⏎····`  [2mprettier/prettier[22m[0m
+[0m  [2m55:47[22m  [31merror[39m  Replace `defaultState,·dispatchMock,·middlewareAMock,·middlewareBMock,·middlewareCMock` with `⏎······defaultState,⏎······dispatchMock,⏎······middlewareAMock,⏎······middlewareBMock,⏎······middlewareCMock⏎····`  [2mprettier/prettier[22m[0m
+[0m[0m
+[0m[4m/workspaces/react-dsv-import/packages/react-dsv-import/src/middlewares/middleware.ts[24m[0m
+[0m  [2m14:7[22m  [33mwarning[39m  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-use-before-define')[0m
+[0m[0m
+[0m[4m/workspaces/react-dsv-import/packages/react-dsv-import/src/middlewares/validatorMiddleware.ts[24m[0m
+[0m  [2m51:22[22m  [31merror[39m  Delete `,`  [2mprettier/prettier[22m[0m
+[0m  [2m52:14[22m  [31merror[39m  Delete `,`  [2mprettier/prettier[22m[0m
+[0m  [2m54:11[22m  [31merror[39m  Delete `,`  [2mprettier/prettier[22m[0m
+[0m[0m
+[0m[31m[1m✖ 16 problems (15 errors, 1 warning)[22m[39m[0m
+[0m[31m[1m[22m[39m[31m[1m  11 errors and 1 warning potentially fixable with the `--fix` option.[22m[39m[0m
+[0m[31m[1m[22m[39m[0m
+✖ 16 problems (15 errors, 1 warning)
+
+  11 errors and 1 warning are potentially fixable with the `--fix` option.
+

@@ -72,7 +72,7 @@ export function DSVImport<T extends GenericColumnType>({
     dispatch,
     createParserMiddleware(),
     createTransformerMiddleware(),
-    createValidatorMiddleware(),
+    createValidatorMiddleware()
   );
 
   const value = useMemo<[State<T>, Dispatch<Actions<T>>]>(() => [state, enhancedDispatch], [state]);

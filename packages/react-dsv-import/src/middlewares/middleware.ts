@@ -11,7 +11,7 @@ export const applyMiddlewares =
 
     const next = (nextMiddlewares: Middleware<T, A>[]) => (value: A) => {
       dispatch(value);
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
+
       call(nextMiddlewares, value);
     };
 

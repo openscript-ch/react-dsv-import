@@ -48,10 +48,10 @@ export const createValidatorMiddleware = <T>() => {
             validateColumn(
               c.key,
               action.parsed.map((r) => r[c.key]),
-              c.rules,
-            ),
+              c.rules
+            )
           ),
-        [],
+        []
       );
       next({ type: 'setValidation', errors });
     }

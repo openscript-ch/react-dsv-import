@@ -1,0 +1,19 @@
+
+Linting "react-dsv-import"...
+[0m[0m
+[0m[4m/workspaces/react-dsv-import/packages/react-dsv-import/src/DSVImport.test.tsx[24m[0m
+[0m  [2m35:7[22m  [31merror[39m  Definition for rule 'react/jsx-props-no-spreading' was not found  [2mreact/jsx-props-no-spreading[22m[0m
+[0m[0m
+[0m[4m/workspaces/react-dsv-import/packages/react-dsv-import/src/components/inputs/TextareaInput.test.tsx[24m[0m
+[0m  [2m17:7[22m  [31merror[39m  Definition for rule 'react/jsx-no-constructed-context-values' was not found  [2mreact/jsx-no-constructed-context-values[22m[0m
+[0m[0m
+[0m[4m/workspaces/react-dsv-import/packages/react-dsv-import/src/components/previews/TablePreview.test.tsx[24m[0m
+[0m  [2m21:7[22m  [31merror[39m  Definition for rule 'react/jsx-no-constructed-context-values' was not found  [2mreact/jsx-no-constructed-context-values[22m[0m
+[0m[0m
+[0m[4m/workspaces/react-dsv-import/packages/react-dsv-import/src/components/previews/TablePreview.tsx[24m[0m
+[0m  [2m36:15[22m  [31merror[39m  Definition for rule 'react/no-array-index-key' was not found  [2mreact/no-array-index-key[22m[0m
+[0m[0m
+[0m[31m[1m✖ 4 problems (4 errors, 0 warnings)[22m[39m[0m
+[0m[31m[1m[22m[39m[0m
+✖ 4 problems (4 errors, 0 warnings)
+

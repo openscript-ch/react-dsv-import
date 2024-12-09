@@ -35,7 +35,7 @@ describe('DSVImport', () => {
       // eslint-disable-next-line react/jsx-props-no-spreading
       <DSVImport<TestType> {...props}>
         <MinimalTextareaInput />
-      </DSVImport>,
+      </DSVImport>
     );
   };
 
