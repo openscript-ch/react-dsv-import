@@ -17,6 +17,7 @@ Add the package with the package manager of choice to your project:
 - **yarn**: `yarn add react-dsv-import`
 - **npm**: `npm install react-dsv-import`
 - **npx**: `npx -p react-dsv-import`
+- **pnpm**: `pnpm add react-dsv-import`
 
 ### TypeScript
 
