@@ -3,6 +3,7 @@ import { ColumnType } from '../../models/column';
 import { TablePreview } from './TablePreview';
 import { State } from '../../models/state';
 import { getDSVImportContext } from '../../features/context';
+import '@testing-library/jest-dom';
 
 describe('TablePreview', () => {
   type TestType = { forename: string; surname: string; email: string };
@@ -14,11 +15,10 @@ describe('TablePreview', () => {
   const defaultState: State<TestType> = { columns };
   const Context = getDSVImportContext<TestType>();
 
-  const dispatchMock = jest.fn(() => defaultState);
+  const dispatchMock = vi.fn(() => defaultState);
 
   const renderComponent = (state = defaultState) => {
     return render(
-      // eslint-disable-next-line react/jsx-no-constructed-context-values
       <Context.Provider value={[state, dispatchMock]}>
         <TablePreview />
       </Context.Provider>

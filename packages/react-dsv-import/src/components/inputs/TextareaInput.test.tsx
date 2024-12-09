@@ -10,11 +10,10 @@ describe('TextareaInput', () => {
   const state: State<TestType> = { columns };
   const Context = getDSVImportContext<TestType>();
 
-  const dispatchMock = jest.fn(() => state);
+  const dispatchMock = vi.fn(() => state);
 
   const renderComponent = () => {
     return render(
-      // eslint-disable-next-line react/jsx-no-constructed-context-values
       <Context.Provider value={[state, dispatchMock]}>
         <TextareaInput />
       </Context.Provider>

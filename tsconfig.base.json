@@ -15,7 +15,7 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "pkgbuild-editor": ["packages/pkgbuild-editor/src/index.ts"],
+      "react-dsv-import": ["packages/react-dsv-import/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp", "dist"]

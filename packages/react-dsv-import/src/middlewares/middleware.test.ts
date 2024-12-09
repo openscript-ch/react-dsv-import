@@ -1,6 +1,10 @@
+import { describe } from 'vitest';
 import { ColumnType } from '../models/column';
 import { State } from '../models/state';
 import { applyMiddlewares } from './middleware';
+import { it } from 'vitest';
+import { vi } from 'vitest';
+import { expect } from 'vitest';
 
 describe('middleware', () => {
   type TestType = { forename: string; surname: string; email: string };
@@ -12,10 +16,10 @@ describe('middleware', () => {
   const defaultState: State<TestType> = { columns };
 
   it('should dispatch to all middlewares', () => {
-    const dispatchMock = jest.fn();
-    const middlewareAMock = jest.fn();
-    const middlewareBMock = jest.fn();
-    const middlewareCMock = jest.fn();
+    const dispatchMock = vi.fn();
+    const middlewareAMock = vi.fn();
+    const middlewareBMock = vi.fn();
+    const middlewareCMock = vi.fn();
     const enhancedDispatch = applyMiddlewares(
       defaultState,
       dispatchMock,
@@ -31,12 +35,12 @@ describe('middleware', () => {
   });
 
   it('should forward a dispatch to other middlewares', () => {
-    const dispatchMock = jest.fn();
-    const middlewareAMock = jest.fn((_state, dispatch) => {
+    const dispatchMock = vi.fn();
+    const middlewareAMock = vi.fn((_state, dispatch) => {
       dispatch({ type: 'sequentCall' });
     });
-    const middlewareBMock = jest.fn();
-    const middlewareCMock = jest.fn();
+    const middlewareBMock = vi.fn();
+    const middlewareCMock = vi.fn();
     const enhancedDispatch = applyMiddlewares(
       defaultState,
       dispatchMock,
@@ -54,14 +58,14 @@ describe('middleware', () => {
   });
 
   it('should not call a middleware twice', () => {
-    const dispatchMock = jest.fn();
-    const middlewareAMock = jest.fn((_state, dispatch) => {
+    const dispatchMock = vi.fn();
+    const middlewareAMock = vi.fn((_state, dispatch) => {
       dispatch({ type: 'sequentCall' });
     });
-    const middlewareBMock = jest.fn((_state, dispatch) => {
+    const middlewareBMock = vi.fn((_state, dispatch) => {
       dispatch({ type: 'sequentCall' });
     });
-    const middlewareCMock = jest.fn((_state, dispatch) => {
+    const middlewareCMock = vi.fn((_state, dispatch) => {
       dispatch({ type: 'sequentCall' });
     });
     const enhancedDispatch = applyMiddlewares(

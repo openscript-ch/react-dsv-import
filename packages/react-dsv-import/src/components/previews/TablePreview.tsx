@@ -33,7 +33,6 @@ export function TablePreview({ className }: TablePreviewProps) {
       <tbody>
         {context.parsed
           ? context.parsed.map((row, rowIndex) => (
-              // eslint-disable-next-line react/no-array-index-key
               <tr key={rowIndex}>
                 {context.columns.map((column) => {
                   return (

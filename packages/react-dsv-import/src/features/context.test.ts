@@ -2,6 +2,9 @@ import { useContext } from 'react';
 import { renderHook } from '@testing-library/react';
 import { reducer, getDSVImportContext } from './context';
 import { State } from '../models/state';
+import { describe } from 'vitest';
+import { it } from 'vitest';
+import { expect } from 'vitest';
 
 describe('context', () => {
   type TestType = unknown;

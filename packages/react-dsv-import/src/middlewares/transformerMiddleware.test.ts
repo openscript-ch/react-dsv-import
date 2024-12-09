@@ -1,6 +1,10 @@
+import { describe } from 'vitest';
 import { ColumnType } from '../models/column';
 import { State } from '../models/state';
 import { createTransformerMiddleware } from './transformerMiddleware';
+import { it } from 'vitest';
+import { vi } from 'vitest';
+import { expect } from 'vitest';
 
 describe('validatorMiddleware', () => {
   type TestType = { forename: string; surname: string; email: string };
@@ -20,7 +24,7 @@ describe('validatorMiddleware', () => {
 
   it('should not dispatch if there are no transformers', () => {
     const state: State<TestType> = { columns: defaultColumns };
-    const dispatchMock = jest.fn();
+    const dispatchMock = vi.fn();
 
     middleware(state, dispatchMock, { type: 'setParsed', parsed });
     expect(dispatchMock).toBeCalledTimes(0);
@@ -28,7 +32,7 @@ describe('validatorMiddleware', () => {
 
   it('should run a transformer on all values', () => {
     const state: State<TestType> = { columns: defaultColumns, transformers: [trimTransformer] };
-    const dispatchMock = jest.fn();
+    const dispatchMock = vi.fn();
 
     middleware(state, dispatchMock, { type: 'setParsed', parsed });
 
@@ -50,7 +54,7 @@ describe('validatorMiddleware', () => {
         { key: 'email', label: 'Email' },
       ],
     };
-    const dispatchMock = jest.fn();
+    const dispatchMock = vi.fn();
 
     middleware(state, dispatchMock, { type: 'setParsed', parsed });
 

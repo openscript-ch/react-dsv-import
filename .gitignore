@@ -1,7 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/react,windows,linux,macos,node,code
-# Edit at https://www.toptal.com/developers/gitignore?templates=react,windows,linux,macos,node,code
-
-#!! ERROR: code is undefined. Use list command to see defined gitignore types !!#
+# Created by https://www.toptal.com/developers/gitignore/api/react,windows,linux,macos,visualstudiocode,node
+# Edit at https://www.toptal.com/developers/gitignore?templates=react,windows,linux,macos,visualstudiocode,node
 
 ### Linux ###
 *~
@@ -204,6 +202,25 @@ psd
 thumb
 sketch
 
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -230,6 +247,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/react,windows,linux,macos,node,code
+# End of https://www.toptal.com/developers/gitignore/api/react,windows,linux,macos,visualstudiocode,node
+
 
 .pnpm-store
+.nx/cache
+.nx/workspace-data

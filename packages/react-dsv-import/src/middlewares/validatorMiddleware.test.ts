@@ -1,6 +1,10 @@
 import { createValidatorMiddleware } from './validatorMiddleware';
 import { State } from '../models/state';
 import { ColumnType } from '../models/column';
+import { describe } from 'vitest';
+import { it } from 'vitest';
+import { vi } from 'vitest';
+import { expect } from 'vitest';
 
 describe('validatorMiddleware', () => {
   type TestType = { forename: string; surname: string; email: string };
@@ -18,7 +22,7 @@ describe('validatorMiddleware', () => {
   ];
 
   it('should return an empty array if there are no errors', () => {
-    const dispatchMock = jest.fn();
+    const dispatchMock = vi.fn();
 
     middleware(defaultState, dispatchMock, { type: 'setParsed', parsed });
 
@@ -26,7 +30,7 @@ describe('validatorMiddleware', () => {
   });
 
   it('should validate unique constraints', () => {
-    const dispatchMock = jest.fn();
+    const dispatchMock = vi.fn();
     const columns: ColumnType<TestType>[] = [...defaultColumns];
     columns[2] = { ...defaultColumns[2], rules: [{ constraint: { unique: true }, message: 'Contains duplicates' }] };
     const state: State<TestType> = { columns };
@@ -43,7 +47,7 @@ describe('validatorMiddleware', () => {
   });
 
   it('should validate with callback constraints', () => {
-    const dispatchMock = jest.fn();
+    const dispatchMock = vi.fn();
     const columns: ColumnType<TestType>[] = [...defaultColumns];
     columns[0] = {
       ...defaultColumns[0],

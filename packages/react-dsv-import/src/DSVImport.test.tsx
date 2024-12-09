@@ -4,6 +4,10 @@ import { ColumnType } from './models/column';
 import { DSVImport } from '.';
 import { useDSVImport } from './features/context';
 import { ValidationError } from './models/validation';
+import { vi } from 'vitest';
+import { describe } from 'vitest';
+import { expect } from 'vitest';
+import { it } from 'vitest';
 
 describe('DSVImport', () => {
   type TestType = { forename: string; surname: string; email: string };
@@ -32,7 +36,6 @@ describe('DSVImport', () => {
 
   const renderComponent = (props: Props<TestType>) => {
     return render(
-      // eslint-disable-next-line react/jsx-props-no-spreading
       <DSVImport<TestType> {...props}>
         <MinimalTextareaInput />
       </DSVImport>
@@ -40,7 +43,7 @@ describe('DSVImport', () => {
   };
 
   it('should invoke the onChange callback', () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const { container } = renderComponent({ columns, onChange: onChangeMock });
     const textarea = container.querySelector('textarea');
 
@@ -52,7 +55,7 @@ describe('DSVImport', () => {
   });
 
   it('should invoke the onValidation callback', () => {
-    const onValidationMock = jest.fn();
+    const onValidationMock = vi.fn();
     const { container } = renderComponent({ columns, onValidation: onValidationMock });
     const textarea = container.querySelector('textarea');
 
