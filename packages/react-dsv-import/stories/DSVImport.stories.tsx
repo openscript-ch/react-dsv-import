@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
-import { css } from '@emotion/react';
 import { DSVImport, ColumnType } from '../src';
 
 export default {
@@ -57,12 +56,6 @@ export function UsingOnChangeCallback() {
 }
 UsingOnChangeCallback.story = { name: 'Using on change callback' };
 
-const tablePreviewStyle = css`
-  .error {
-    border: 1px solid red;
-  }
-`;
-
 export function UsingOnValidationCallback() {
   const columns: ColumnType<BasicType>[] = [
     { key: 'forename', label: 'Forename' },
@@ -75,7 +68,7 @@ export function UsingOnValidationCallback() {
   return (
     <DSVImport<BasicType> columns={columns} onChange={onChangeAction} onValidation={onValidationAction}>
       <DSVImport.TextareaInput />
-      <DSVImport.TablePreview css={tablePreviewStyle} />
+      <DSVImport.TablePreview />
     </DSVImport>
   );
 }

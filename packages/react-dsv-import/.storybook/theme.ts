@@ -4,5 +4,5 @@ export default create({
   base: 'light',
 
   brandTitle: 'React DSV Import',
-  brandUrl: 'https://github.com/openscript-ch/react-dsv-import'
+  brandUrl: 'https://github.com/openscript-ch/react-dsv-import',
 });

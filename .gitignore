@@ -253,3 +253,6 @@ $RECYCLE.BIN/
 .pnpm-store
 .nx/cache
 .nx/workspace-data
+
+
+storybook-static

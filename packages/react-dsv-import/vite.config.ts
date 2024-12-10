@@ -14,6 +14,7 @@ export default defineConfig({
       tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
     }),
   ],
+  assetsInclude: ['README.md'],
 
   // Uncomment this if you are using workers.
   // worker: {

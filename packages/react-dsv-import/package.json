@@ -19,6 +19,7 @@
   "license": "MIT",
   "main": "./index.js",
   "typings": "./index.d.ts",
+  "type": "module",
   "publishConfig": {
     "access": "public",
     "directory": "../../dist/packages/react-dsv-import"

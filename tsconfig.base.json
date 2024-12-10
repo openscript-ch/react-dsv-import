@@ -15,7 +15,7 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "react-dsv-import": ["packages/react-dsv-import/src/index.ts"],
+      "react-dsv-import": ["packages/react-dsv-import/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp", "dist"]
