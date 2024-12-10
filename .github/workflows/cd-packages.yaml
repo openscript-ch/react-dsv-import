@@ -5,11 +5,11 @@ on:
     types:
       - closed
     branches:
-      - main
+      - master
 
 jobs:
   publish-packages:
-    if: github.event.pull_request.merged == true && github.head_ref == 'changeset-release/main'
+    if: github.event.pull_request.merged == true && github.head_ref == 'changeset-release/master'
     name: Publish packages
     runs-on: ubuntu-latest
     steps:

@@ -3,7 +3,7 @@ name: Version packages
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   version-packages:
@@ -40,12 +40,12 @@ jobs:
         run: echo "CURRENT_BRANCH=$(git branch --show-current)" >> $GITHUB_ENV
 
       - name: Update lock file
-        if: env.CURRENT_BRANCH == 'changeset-release/main'
+        if: env.CURRENT_BRANCH == 'changeset-release/master'
         run: pnpm install --lockfile-only
 
       - name: Commit lock file
-        if: env.CURRENT_BRANCH == 'changeset-release/main'
+        if: env.CURRENT_BRANCH == 'changeset-release/master'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update lock file"
-          branch: changeset-release/main
+          branch: changeset-release/master
