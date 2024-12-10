@@ -1,20 +1,3 @@
 {
-  "editor.tabSize": 2,
-  "editor.insertSpaces": true,
-  "editor.renderWhitespace": "boundary",
-  "editor.rulers": [140],
-  "editor.formatOnSave": true,
-  "files.encoding": "utf8",
-  "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true,
-  "search.exclude": {
-    "public/**": true,
-    "node_modules/**": true
-  },
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "cSpell.language": "en",
-  "cSpell.words": ["vite", "vitest", "middlewares"]
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

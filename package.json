@@ -1,98 +1,61 @@
 {
-  "version": "0.4.0",
-  "name": "react-dsv-import",
-  "description": "Flexible, typed and easy to use React Component ⚛ to provide CSV, TSV and other delimiter-separated values formats (DSV) import functionality.",
-  "keywords": [
-    "react-component",
-    "typescript",
-    "react"
-  ],
-  "homepage": "https://openscript-ch.github.io/react-dsv-import/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/openscript-ch/react-dsv-import"
-  },
-  "bugs": {
-    "url": "https://github.com/openscript-ch/react-dsv-import/issues"
-  },
-  "author": "openscript GmbH <hi+npm@openscript.ch>",
   "license": "MIT",
-  "main": "./react-dsv-import.umd.js",
-  "module": "./react-dsv-import.es.js",
-  "exports": {
-    ".": {
-      "import": "./react-dsv-import.es.js",
-      "require": "./react-dsv-import.umd.js"
-    }
-  },
-  "size-limit": [
-    {
-      "path": "./dist/react-dsv-import.es.js"
-    },
-    {
-      "path": "./dist/react-dsv-import.umd.js"
-    }
-  ],
-  "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
-  },
-  "devDependencies": {
-    "@babel/core": "7.18.6",
-    "@emotion/babel-plugin": "11.9.2",
-    "@emotion/react": "11.9.3",
-    "@size-limit/preset-small-lib": "7.0.8",
-    "@storybook/addon-actions": "6.5.9",
-    "@storybook/addon-docs": "6.5.9",
-    "@storybook/addon-essentials": "6.5.9",
-    "@storybook/addon-links": "6.5.9",
-    "@storybook/addon-storysource": "6.5.9",
-    "@storybook/builder-vite": "0.1.39",
-    "@storybook/react": "6.5.9",
-    "@testing-library/jest-dom": "5.16.4",
-    "@testing-library/react": "13.3.0",
-    "@types/react": "18.0.15",
-    "@types/react-dom": "18.0.6",
-    "@typescript-eslint/eslint-plugin": "5.30.6",
-    "@typescript-eslint/parser": "5.30.6",
-    "@vitejs/plugin-react": "1.3.2",
-    "babel-loader": "8.2.5",
-    "eslint": "8.19.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-config-airbnb-typescript": "17.0.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jsx-a11y": "6.6.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-react": "7.30.1",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-storybook": "0.6.1",
-    "jest": "28.1.2",
-    "jest-environment-jsdom": "28.1.2",
-    "npm-check": "5.9.2",
-    "prettier": "2.7.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "size-limit": "7.0.8",
-    "ts-jest": "28.0.5",
-    "typescript": "4.7.4",
-    "vite": "2.9.18",
-    "vite-plugin-dts": "1.3.0",
-    "vite-plugin-markdown": "2.0.2",
-    "vitest": "0.18.0"
-  },
   "scripts": {
-    "build": "vite build",
-    "build:storybook": "build-storybook",
-    "check:format": "eslint . --max-warnings 0",
-    "check:types": "tsc --noEmit",
-    "check:size": "npm run build && size-limit",
-    "postbuild": "node ./postbuild.js",
-    "serve": "vite preview",
-    "start": "start-storybook -p 6007 --ci",
-    "storybook": "start-storybook -p 6007 --ci",
-    "test": "jest --coverage",
-    "coverage": "vitest --coverage",
-    "upgrade-interactive": "npm-check -u --debug"
+    "build": "pnpm exec nx run-many --target=build --parallel",
+    "dev": "pnpm exec nx watch --all -- nx run \\$NX_PROJECT_NAME:build",
+    "lint": "pnpm exec nx run-many --target=lint --parallel",
+    "test": "pnpm exec nx run-many --target=test --parallel --output-style=stream --skip-nx-cache",
+    "test:watch": "pnpm exec nx run-many --target=test --watch --parallel --output-style=stream",
+    "version": "changeset version",
+    "tag": "changeset tag"
+  },
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@9.12.3",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.9",
+    "@chromatic-com/storybook": "^3",
+    "@eslint/js": "^9.14.0",
+    "@nx/eslint": "^20.0.12",
+    "@nx/eslint-plugin": "20.2.1",
+    "@nx/js": "20.2.1",
+    "@nx/storybook": "^20.2.1",
+    "@nx/vite": "^20.0.12",
+    "@nx/web": "20.2.1",
+    "@storybook/addon-actions": "^8.4.7",
+    "@storybook/addon-docs": "^8.4.7",
+    "@storybook/addon-essentials": "^8.4.6",
+    "@storybook/addon-interactions": "^8.4.6",
+    "@storybook/core-server": "^8.4.6",
+    "@storybook/manager-api": "^8.4.7",
+    "@storybook/react": "^8.4.6",
+    "@storybook/react-vite": "^8.4.6",
+    "@storybook/test": "^8.4.7",
+    "@storybook/test-runner": "^0.20.1",
+    "@storybook/theming": "^8.4.7",
+    "@swc-node/register": "~1.10.9",
+    "@swc/core": "~1.10.1",
+    "@swc/helpers": "~0.5.11",
+    "@types/node": "^22.9.0",
+    "@vitest/coverage-v8": "^2.1.4",
+    "@vitest/ui": "^2.1.4",
+    "eslint": "^9.14.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.12.0",
+    "nx": "^20.0.12",
+    "prettier": "^3.3.3",
+    "storybook": "^8.4.6",
+    "ts-node": "10.9.2",
+    "tslib": "^2.8.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.18.0",
+    "vite": "^5.4.10",
+    "vite-plugin-dts": "^4.3.0",
+    "vitest": "^2.1.4"
+  },
+  "dependencies": {
+    "react-dsv-import": "workspace:*"
   }
 }
