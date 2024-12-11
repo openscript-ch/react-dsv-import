@@ -55,7 +55,7 @@ jobs:
 
   deploy-to-static-file-host:
     name: Deploy to Static File Host
-    uses: ./.github/workflows/cd-deploy.yml
+    uses: ./.github/workflows/cd-deploy.yaml
     needs: publish-packages
     with:
       ref: ${{ needs.publish-packages.outputs.ref }}
