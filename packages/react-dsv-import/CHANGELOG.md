@@ -1,5 +1,11 @@
 # react-dsv-import
 
+## 0.4.4
+
+### Patch Changes
+
+- f294c99: Upgrade dependencies
+
 ## 0.4.3
 
 ### Patch Changes
