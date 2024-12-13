@@ -1,5 +1,11 @@
 # react-dsv-import
 
+## 0.4.5
+
+### Patch Changes
+
+- ef0d0bb: Add build step to publication
+
 ## 0.4.4
 
 ### Patch Changes
