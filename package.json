@@ -4,6 +4,7 @@
     "build": "pnpm exec nx run-many --target=build --parallel",
     "dev": "pnpm exec nx watch --all -- nx run \\$NX_PROJECT_NAME:build",
     "lint": "pnpm exec nx run-many --target=lint --parallel",
+    "prepublish": "pnpm exec nx run-many --target=prepare --parallel",
     "test": "pnpm exec nx run-many --target=test --parallel --output-style=stream --skip-nx-cache",
     "test:watch": "pnpm exec nx run-many --target=test --watch --parallel --output-style=stream",
     "version": "changeset version",
