@@ -1,4 +1,4 @@
-import { PropsWithChildren, useReducer, useEffect, useMemo, Dispatch } from 'react';
+import React, { PropsWithChildren, useReducer, useEffect, useMemo, Dispatch } from 'react';
 import { ColumnType, GenericColumnType } from './models/column';
 import { getDSVImportContext, useDSVImport, createReducer } from './features/context';
 import { createParserMiddleware } from './middlewares/parserMiddleware';
