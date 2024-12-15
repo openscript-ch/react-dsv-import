@@ -1,5 +1,12 @@
 # react-dsv-import
 
+## 0.4.6
+
+### Patch Changes
+
+- 61016e6: Add prepare step
+- a895a34: Externalize react runtime
+
 ## 0.4.5
 
 ### Patch Changes
