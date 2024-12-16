@@ -1,5 +1,11 @@
 # react-dsv-import
 
+## 0.4.7
+
+### Patch Changes
+
+- f35d250: Include react components in build
+
 ## 0.4.6
 
 ### Patch Changes
