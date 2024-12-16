@@ -1,5 +1,11 @@
 # react-dsv-import
 
+## 0.4.8
+
+### Patch Changes
+
+- 0abbce5: Use React 18
+
 ## 0.4.7
 
 ### Patch Changes
