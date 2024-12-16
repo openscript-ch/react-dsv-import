@@ -1,5 +1,11 @@
 # react-dsv-import
 
+## 0.4.9
+
+### Patch Changes
+
+- 6a4d43a: Prevent React from being bundled
+
 ## 0.4.8
 
 ### Patch Changes
