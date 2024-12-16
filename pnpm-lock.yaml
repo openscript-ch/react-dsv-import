@@ -38,7 +38,7 @@ importers:
         version: 20.2.2(@babel/traverse@7.26.4)(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15))(@types/node@22.10.2)(@zkochan/js-yaml@0.0.7)(eslint@9.17.0)(nx@20.2.2(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15)))(typescript@5.7.2)
       '@nx/vite':
         specifier: ^20.2.2
-        version: 20.2.2(@babel/traverse@7.26.4)(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15))(@types/node@22.10.2)(nx@20.2.2(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15)))(typescript@5.7.2)(vite@6.0.3(@types/node@22.10.2)(tsx@4.19.2)(yaml@2.6.1))(vitest@2.1.8(@types/node@22.10.2)(@vitest/ui@2.1.8)(jsdom@25.0.1)(tsx@4.19.2)(yaml@2.6.1))
+        version: 20.2.2(@babel/traverse@7.26.4)(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15))(@types/node@22.10.2)(nx@20.2.2(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15)))(typescript@5.7.2)(vite@6.0.3(@types/node@22.10.2)(tsx@4.19.2)(yaml@2.6.1))(vitest@2.1.8)
       '@nx/web':
         specifier: 20.2.2
         version: 20.2.2(@babel/traverse@7.26.4)(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15))(@types/node@22.10.2)(nx@20.2.2(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15)))(typescript@5.7.2)
@@ -92,7 +92,7 @@ importers:
         version: 4.3.4(vite@6.0.3(@types/node@22.10.2)(tsx@4.19.2)(yaml@2.6.1))
       '@vitest/coverage-v8':
         specifier: ^2.1.8
-        version: 2.1.8(vitest@2.1.8(@types/node@22.10.2)(@vitest/ui@2.1.8)(jsdom@25.0.1)(tsx@4.19.2)(yaml@2.6.1))
+        version: 2.1.8(vitest@2.1.8)
       '@vitest/ui':
         specifier: ^2.1.8
         version: 2.1.8(vitest@2.1.8)
@@ -145,10 +145,10 @@ importers:
   packages/react-dsv-import:
     dependencies:
       react:
-        specifier: ^18.0.0
+        specifier: ^18.0.0 || ^19.0.0
         version: 18.3.1
       react-dom:
-        specifier: ^18.0.0
+        specifier: ^18.0.0 || ^19.0.0
         version: 18.3.1(react@18.3.1)
     devDependencies:
       '@testing-library/jest-dom':
@@ -156,10 +156,10 @@ importers:
         version: 6.6.3
       '@testing-library/react':
         specifier: ^16.1.0
-        version: 16.1.0(@testing-library/dom@10.4.0)(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 16.1.0(@testing-library/dom@10.4.0)(@types/react@19.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/react':
-        specifier: ^18.3.1
-        version: 18.3.16
+        specifier: ^19.0.0
+        version: 19.0.1
       jsdom:
         specifier: ^25.0.1
         version: 25.0.1
@@ -2065,12 +2065,6 @@ packages:
 
   '@types/parse-json@4.0.2':
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
-
-  '@types/prop-types@15.7.14':
-    resolution: {integrity: sha512-gNMvNH49DJ7OJYv+KAKn0Xp45p8PLl6zo2YnvDIbTd4J6MER2BmWN49TG7n9LvkyihINxeKW8+3bfS2yDC9dzQ==}
-
-  '@types/react@18.3.16':
-    resolution: {integrity: sha512-oh8AMIC4Y2ciKufU8hnKgs+ufgbA/dhPTACaZPM86AbwX9QwnFtSoPWEeRUj8fge+v6kFt78BXcDhAU1SrrAsw==}
 
   '@types/react@19.0.1':
     resolution: {integrity: sha512-YW6614BDhqbpR5KtUYzTA+zlA7nayzJRA9ljz9CQoxthR0sDisYZLuvSMsil36t4EH/uAt8T52Xb4sVw17G+SQ==}
@@ -6779,7 +6773,7 @@ snapshots:
       - typescript
       - verdaccio
 
-  '@nx/vite@20.2.2(@babel/traverse@7.26.4)(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15))(@types/node@22.10.2)(nx@20.2.2(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15)))(typescript@5.7.2)(vite@6.0.3(@types/node@22.10.2)(tsx@4.19.2)(yaml@2.6.1))(vitest@2.1.8(@types/node@22.10.2)(@vitest/ui@2.1.8)(jsdom@25.0.1)(tsx@4.19.2)(yaml@2.6.1))':
+  '@nx/vite@20.2.2(@babel/traverse@7.26.4)(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15))(@types/node@22.10.2)(nx@20.2.2(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15)))(typescript@5.7.2)(vite@6.0.3(@types/node@22.10.2)(tsx@4.19.2)(yaml@2.6.1))(vitest@2.1.8)':
     dependencies:
       '@nx/devkit': 20.2.2(nx@20.2.2(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15)))
       '@nx/js': 20.2.2(@babel/traverse@7.26.4)(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15))(@types/node@22.10.2)(nx@20.2.2(@swc-node/register@1.10.9(@swc/core@1.10.1(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.2))(@swc/core@1.10.1(@swc/helpers@0.5.15)))(typescript@5.7.2)
@@ -7371,14 +7365,14 @@ snapshots:
       lodash: 4.17.21
       redent: 3.0.0
 
-  '@testing-library/react@16.1.0(@testing-library/dom@10.4.0)(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@testing-library/react@16.1.0(@testing-library/dom@10.4.0)(@types/react@19.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.26.0
       '@testing-library/dom': 10.4.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     optionalDependencies:
-      '@types/react': 18.3.16
+      '@types/react': 19.0.1
 
   '@testing-library/user-event@14.5.2(@testing-library/dom@10.4.0)':
     dependencies:
@@ -7450,13 +7444,6 @@ snapshots:
       undici-types: 6.20.0
 
   '@types/parse-json@4.0.2': {}
-
-  '@types/prop-types@15.7.14': {}
-
-  '@types/react@18.3.16':
-    dependencies:
-      '@types/prop-types': 15.7.14
-      csstype: 3.1.3
 
   '@types/react@19.0.1':
     dependencies:
@@ -7566,7 +7553,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@2.1.8(vitest@2.1.8(@types/node@22.10.2)(@vitest/ui@2.1.8)(jsdom@25.0.1)(tsx@4.19.2)(yaml@2.6.1))':
+  '@vitest/coverage-v8@2.1.8(vitest@2.1.8)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
