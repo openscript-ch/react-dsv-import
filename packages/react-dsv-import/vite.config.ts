@@ -1,13 +1,16 @@
 /// <reference types='vitest' />
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import * as path from 'node:path';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { coverageConfigDefaults } from 'vitest/config';
 
 export default defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/react-dsv-import',
   plugins: [
+    react(),
     nxViteTsPaths(),
     dts({
       entryRoot: 'src',
@@ -26,7 +29,7 @@ export default defineConfig({
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points.
-      entry: 'src/index.ts',
+      entry: 'src/index.tsx',
       name: 'react-dsv-import',
       fileName: 'index',
       // Change this to the formats you want to support.
@@ -49,6 +52,7 @@ export default defineConfig({
     environment: 'jsdom',
     coverage: {
       reportsDirectory: '../../coverage/packages/react-dsv-import',
+      exclude: ['stories', 'storybook-static', ...coverageConfigDefaults.exclude],
     },
     setupFiles: './setupTests.ts',
     reporters: ['verbose'],

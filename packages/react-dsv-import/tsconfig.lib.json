@@ -5,14 +5,10 @@
     "declaration": true,
     "types": ["node", "vite/client"]
   },
-  "include": ["src/**/*.ts", "setupTests.ts"],
+  "include": ["src/**/*.{ts,tsx}", "setupTests.ts"],
   "exclude": [
     "jest.config.ts",
-    "src/**/*.spec.ts",
-    "src/**/*.test.ts",
-    "**/*.stories.ts",
-    "**/*.stories.js",
-    "**/*.stories.jsx",
-    "**/*.stories.tsx"
+    "src/**/*.{spec,test}.{ts,tsx}",
+    "**/*.stories.{ts,js,jsx,tsx}",
   ]
 }
