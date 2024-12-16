@@ -1,5 +1,11 @@
 # react-dsv-import
 
+## 0.4.10
+
+### Patch Changes
+
+- a2ea48f: Losen peer dependency version pining
+
 ## 0.4.9
 
 ### Patch Changes
