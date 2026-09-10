@@ -45,7 +45,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.13.0",
-    "nx": "^20.2.2",
+    "nx": "^22.0.0",
     "prettier": "^3.4.2",
     "storybook": "^8.4.7",
     "ts-node": "10.9.2",
